@@ -231,17 +231,23 @@ button:nth-of-type(2) {
   .modal-content p {
     font-size: 1.3rem;
   }
+    .main-title {
+    max-width: 90%;
+    word-break: break-word; /* si es muy largo */
+  }
 
   /* El header que contiene el título y las banderas, para que se apilen */
   .header {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    position: relative;  /* asegúrate que no es absolute */
   }
 
-  /* Ajustar la posición de las banderas */
   .language-selector {
     position: static;
+    margin-top: 10px;     /* separación vertical */
+    z-index: auto;        /* quitar posibles capas */
   }
 }
 
