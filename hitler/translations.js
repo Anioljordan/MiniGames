@@ -108,7 +108,7 @@ showModal = function(name, role) {
 };
 
 window.onload = () => {
-  const defaultLang = 'es';
+  const defaultLang = 'ca';
   const defaultFlag = document.querySelector(`.language-selector .flag[data-lang="${defaultLang}"]`);
   if (defaultFlag) defaultFlag.classList.add("active");
 
