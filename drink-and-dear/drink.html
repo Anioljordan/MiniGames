@@ -3,33 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-i18n="title">Drink and Dare</title>
-  <link rel="stylesheet" href="drink.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Drink and Dare - Ruleta Mejorada</title>
+    <link rel="stylesheet" href="drink.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
 
 </head>
 <body>
 
-  <header>
+  <h1>Drink and Dare - Ruleta</h1>
 
-    <h1 data-i18n="title">Drink and Dare</h1>
-  </header>
+<div class="wheel-container">
+  <div class="arrow"></div>
+  <div class="wheel" id="wheel">
+    <div class="segment-labels" id="segmentLabels"></div> <!-- movido dentro -->
+  </div>
+</div>
 
+
+  <button id="spinBtn">Girar Ruleta</button>
+
+  <div id="result"></div>
+
+<script src="drink.js"></script>
 
   <footer class="footer">
     <div class="footer-content">
       <p>Creado por Aniol Jordán</p>
       <ul class="footer-links">
-        <li><a href="https://www.linkedin.com/in/aniol-jord%C3%A1n-l%C3%B3pez-35854123a/" target="_blank">LinkedIn</a></li>
-        <li><a href="https://www.instagram.com/aniol.dev" target="_blank">Instagram</a></li>
-        <li><a href="https://github.com/Anioljordan" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/aniol-jord%C3%A1n-l%C3%B3pez-35854123a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/aniol.dev" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://github.com/Anioljordan" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
       </ul>
     </div>
   </footer>
-
-
-  <script src="yo-nunca.js"></script>
 
 </body>
 </html>
