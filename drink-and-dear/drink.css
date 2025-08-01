@@ -132,28 +132,6 @@
       min-width: 250px;
     }
 
-    /* Responsive */
-    @media (max-width: 480px) {
-      .wheel-container {
-        width: 320px;
-        height: 320px;
-      }
-      h1 {
-        font-size: 2.4rem;
-      }
-      button {
-        font-size: 1.1rem;
-        padding: 14px 30px;
-      }
-      #result {
-        font-size: 1.2rem;
-        min-width: 180px;
-      }
-      .segment-label {
-        width: 90px;
-        font-size: 1rem;
-      }
-    }
 .popup {
   position: fixed;
   top: 0;
@@ -214,4 +192,75 @@
 
 .footer-links li a:hover {
   color: #81d4fa;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .wheel-container {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 30px;
+  }
+
+  .segment-label {
+    font-size: 0.8rem;
+    width: 70px;
+  }
+
+  button {
+    padding: 14px 24px;
+    font-size: 1.1rem;
+  }
+
+  #result {
+    font-size: 1.2rem;
+    min-width: auto;
+    margin-top: 20px;
+  }
+
+  .popup-content {
+    font-size: 16px;
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  #popup-close {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .footer {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wheel-container {
+    width: 240px;
+    height: 240px;
+  }
+
+  .segment-label {
+    font-size: 0.7rem;
+    width: 60px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
 }
