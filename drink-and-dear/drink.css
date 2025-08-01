@@ -34,20 +34,19 @@
       box-shadow: 0 0 30px #ace5ff;
       position: relative;
       overflow: hidden;
-      transition: transform 5s cubic-bezier(0.33, 1, 0.68, 1);
       background: conic-gradient(
-        #ff4b4b 0deg 30deg,
+        #ff0000 0deg 30deg,
         #fffb25 30deg 60deg,
-        #7dff31 60deg 90deg,
-        #2176bb 90deg 120deg,
-        #d549ff 120deg 150deg,
-        #ff8b1e 150deg 180deg,
-        #4d2500 180deg 210deg,
-        #ff0000 210deg 240deg,
-        #000266 240deg 270deg,
+        #006300 60deg 90deg,
+        #0004fd 90deg 120deg,
+        #5c3100 120deg 150deg,
+        #ff0000 150deg 180deg,
+        #fffb25 180deg 210deg,
+        #006300 210deg 240deg,
+        #0004fd 240deg 270deg,
         #ffffff 270deg 300deg,
-        #4b0029 300deg 330deg,
-        #00ac5c 330deg 360deg
+        #5c3100 300deg 330deg,
+        #ffffff 330deg 360deg
       );
       user-select: none;
     }

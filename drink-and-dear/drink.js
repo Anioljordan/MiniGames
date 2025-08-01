@@ -10,43 +10,49 @@
   // Crear los textos de los segmentos
 const segments = [
   "BEBES UN TRAGO",
-  "BEBES DOS TRAGOS",
   "REPARTES 3 TRAGOS",
-  "REPARTES 4 TRAGOS",
   "ERES EL ESCLAVO DE TODOS DURANTE UNA RONDA",
   "MEDUSA",
   "SACO LLENO DE…",
+  "BEBES DOS TRAGOS",
+  "REPARTES 4 TRAGOS",
   "TE BEBES UN CHUPITO",
   "PONER UNA NORMA",
   "ZAS",
   "PONER BEBIDA EN UN VASO COMÚN",
-  "TE BEBES EL VASO COMÚN SI NO HAY BEBIDA, DOS TRAGOS",
   "SI TIENES MENOS DE LA MITAD DEL VASO, SANILARI SINO REPARTES 2 TRAGOS",
+  "TE BEBES EL VASO COMÚN SI NO HAY BEBIDA, DOS TRAGOS",
 ];
 
 
 
-  let rotation = 0; // grados actuales
-  let velocity = 0; // velocidad angular en grados/frame
-  let spinning = false;
+let rotation = 0;
+let velocity = 0; // grados por segundo
+let spinning = false;
+let lastTimestamp = null;
 
-  function animate() {
+function animate(timestamp) {
   if (!spinning) return;
 
-  // Sumar velocidad siempre positiva para que gire sentido horario
-  rotation += Math.abs(velocity);
-  rotation %= 360;
+  if (!lastTimestamp) lastTimestamp = timestamp;
+  const deltaTime = (timestamp - lastTimestamp) / 1000; // en segundos
+  lastTimestamp = timestamp;
 
+  rotation += velocity * deltaTime;
+  rotation %= 360;
   wheel.style.transform = `rotate(${rotation}deg)`;
 
-  velocity -= 1; // desaceleración lineal
-  if (velocity < 0) velocity = 0; // nunca negativo
+  // Desacelerar (pierde un 5% por segundo)
+velocity *= 0.993; // se frena más lento, gira más tiempo
 
-  if (velocity === 0) {
+
+  if (velocity < 5) {
+    velocity = 0;
     spinning = false;
+    lastTimestamp = null;
 
     setTimeout(() => {
-      const offset = 90; // punto fijo para calcular el segmento ganador
+      const offset = 90;
       const adjustedRotation = (rotation + offset) % 360;
       const normalizedDegree = (360 - adjustedRotation) % 360;
       const winningIndex = Math.floor(normalizedDegree / segmentAngle);
@@ -62,7 +68,7 @@ const segments = [
         popup.classList.add('hidden');
         spinBtn.disabled = false;
       };
-    }, 4000); // o el tiempo que quieras
+    }, 500); // opcional: pequeña pausa antes del popup
   } else {
     requestAnimationFrame(animate);
   }
@@ -75,38 +81,14 @@ spinBtn.addEventListener('click', () => {
   spinBtn.disabled = true;
   result.textContent = '';
 
-  // Velocidad inicial siempre positiva
-  velocity = Math.random() * 40 + 60; // de 60 a 100 grados/frame
+velocity = Math.random() * 360 + 720; // entre 720 y 1080 grados/seg = 2 a 3 vueltas/seg
+
+  lastTimestamp = null;
 
   requestAnimationFrame(animate);
 });
 
 
-spinBtn.addEventListener('click', () => {
-  if (spinning) return;
-
-  spinning = true;
-  spinBtn.disabled = true;
-  result.textContent = '';
-
-  velocity = Math.random() * 20 + 30; // de 30 a 50 grados/frame
-
-  requestAnimationFrame(animate);
-});
-
-
-  spinBtn.addEventListener('click', () => {
-    if (spinning) return;
-
-    spinning = true;
-    spinBtn.disabled = true;
-    result.textContent = '';
-
-    // Velocidad inicial alta para giro rápido (en grados por frame)
-    velocity = Math.random() * 20 + 30; // de 30 a 50 grados/frame
-
-    requestAnimationFrame(animate);
-  });
 
 
   const rulesBtn = document.getElementById('rulesBtn');
@@ -115,10 +97,6 @@ spinBtn.addEventListener('click', () => {
 
   rulesBtn.onclick = () => {
     rulesPopup.classList.remove('hidden');
-  };
-
-  rulesClose.onclick = () => {
-    rulesPopup.classList.add('hidden');
   };
 
 
