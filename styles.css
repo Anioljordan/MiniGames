@@ -238,24 +238,27 @@ button:nth-of-type(2) {
   .modal-content p {
     font-size: 1.3rem;
   }
-    .main-title {
+  .main-title {
     max-width: 90%;
-    word-break: break-word; /* si es muy largo */
+    word-break: break-word;
+    text-align: center;
   }
 
   /* El header que contiene el título y las banderas, para que se apilen */
-  .header {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    position: relative;  /* asegúrate que no es absolute */
-  }
+.header {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 10px;
+}
 
-  .language-selector {
-    position: static;
-    margin-top: 10px;     /* separación vertical */
-    z-index: auto;        /* quitar posibles capas */
-  }
+.language-selector {
+  position: static !important;
+  transform: none !important;
+  margin-top: 10px;
+  z-index: auto;
+}
+
 }
 
 /* Mejor control para la cabecera en desktop: que el título esté centrado y banderas a la derecha */
