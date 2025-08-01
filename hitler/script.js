@@ -109,6 +109,15 @@ function renderPlayers() {
     container.appendChild(btn);
   });
 }
+function removePlayer() {
+  const playersDiv = document.getElementById("players");
+  const inputs = playersDiv.getElementsByTagName("input");
+  
+  // Evita borrar el último input: siempre debe quedar al menos 1
+  if (inputs.length > 1) {
+    playersDiv.removeChild(inputs[inputs.length - 1]);
+  }
+}
 
 function showModal(name, role) {
   const lang = getCurrentLanguage();
@@ -130,38 +139,33 @@ window.onclick = function(event) {
   }
 };
 window.onload = () => {
+  const defaultLang = 'ca';
+  const defaultFlag = document.querySelector(`.language-selector .flag[data-lang="${defaultLang}"]`);
+  if (defaultFlag) defaultFlag.classList.add("active");
+
+  changeLanguage(defaultLang);
+
   // Recuperar jugadores guardados
   const savedPlayers = JSON.parse(localStorage.getItem('savedPlayers') || '[]');
   const playersDiv = document.getElementById("players");
-
-  // Vaciar inputs actuales
   playersDiv.innerHTML = '';
 
-  // Si hay jugadores guardados, los cargamos
   if (savedPlayers.length > 0) {
     savedPlayers.forEach((name, i) => {
       const input = document.createElement("input");
       input.type = "text";
-      // Si el nombre es vacío o igual al placeholder, dejamos placeholder
-      const lang = getCurrentLanguage();
-      const placeholder = translations[lang].playerPlaceholder + (i + 1);
-      if (!name || name.trim() === '' || name === placeholder) {
-        input.placeholder = placeholder;
-      } else {
-        input.value = name;
-      }
+      const placeholder = translations[defaultLang].playerPlaceholder + (i + 1);
+      input.value = name || "";
+      input.placeholder = placeholder;
       playersDiv.appendChild(input);
     });
   } else {
-    // Si no hay nada guardado, ponemos un input por defecto
     const input = document.createElement("input");
     input.type = "text";
-    const lang = getCurrentLanguage();
-    input.placeholder = translations[lang].playerPlaceholder + '1';
+    input.placeholder = translations[defaultLang].playerPlaceholder + '1';
     playersDiv.appendChild(input);
   }
 
-  // Recuperar roles asignados
   const savedRoles = JSON.parse(localStorage.getItem('assignedRoles') || '[]');
   if (savedRoles.length > 0) {
     assignedRoles = savedRoles;

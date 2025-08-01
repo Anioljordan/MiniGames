@@ -1,0 +1,264 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #121625, #1e1e2f);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  gap: 30px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px rgba(0,0,0,0.6);
+}
+
+.tableros {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 40px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.tablero {
+  padding: 25px 30px;
+  border-radius: 12px;
+  min-width: 150px;
+  color: white;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.7);
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.tablero:hover {
+  transform: scale(1.05);
+}
+
+#liberalBoard {
+  background: linear-gradient(145deg, #007bffcc, #004f9ecc);
+  border: 2px solid #3399ff;
+}
+
+#fachaBoard {
+  background: linear-gradient(145deg, #cc0000cc, #8b0000cc);
+  border: 2px solid #ff4444;
+}
+
+.tablero h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 6px rgba(0,0,0,0.7);
+}
+
+.carta {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin: 5px;
+  transition: background-color 0.25s ease, opacity 0.3s ease;
+}
+
+.carta:hover {
+  opacity: 0.85;
+}
+
+.liberal {
+  background-color: #007bff;
+  box-shadow: 0 0 8px #3399ffbb;
+}
+
+.facha {
+  background-color: #cc0000;
+  box-shadow: 0 0 8px #ff4444bb;
+}
+
+button {
+  margin-top: 10px;
+  padding: 12px 20px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 5px 15px #2a7a2aaa;
+  transition: background-color 0.25s ease;
+}
+
+button:hover {
+  background-color: #3b8b3b;
+}
+
+/* 🔹 Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #2a2a3d;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 30px #000000aa;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+}
+
+.cartas-modal {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.close-btn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #999;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.close-btn:hover:not(:disabled) {
+  background-color: #666;
+}
+
+.leyes {
+  padding: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.leyes.liberal h3 {
+  color: #000000;
+  text-shadow: 0 0 5px #3399ffcc;
+}
+
+.leyes.facha h3 {
+  color: #000000;
+  text-shadow: 0 0 5px #ff4444cc;
+}
+
+.casillas {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.casilla {
+  width: 44px;
+  height: 68px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  box-shadow: inset 0 0 6px #00000030;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Colores al ser activadas */
+.casilla.liberal {
+  background-color: #007BFF;
+  box-shadow: 0 0 10px 3px #3399ffaa;
+  border-color: #3399ff;
+}
+
+.casilla.facha {
+  background-color: #FF3333;
+  box-shadow: 0 0 10px 3px #ff4444aa;
+  border-color: #ff4444;
+}
+
+/* Modal Confirmación Reinicio */
+#modalConfirmarReinicio .modal-content button {
+  margin: 10px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#modalConfirmarReinicio .modal-content button:first-child {
+  background-color: #cc0000;
+  color: white;
+  box-shadow: 0 0 8px #cc0000cc;
+}
+
+#modalConfirmarReinicio .modal-content button:last-child {
+  background-color: #555;
+  color: white;
+  box-shadow: 0 0 8px #555555cc;
+}
+
+/* Botón reiniciar abajo con margen grande */
+#botonReiniciar {
+  margin-top: 40px;
+  padding: 14px 36px;
+  font-size: 18px;
+  font-weight: 700;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px #2a7a2aaa;
+  transition: background-color 0.25s ease;
+  align-self: center;
+  /* Fija el botón abajo si quieres: */
+  /* position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); */
+}
+
+#botonReiniciar:hover {
+  background-color: #3b8b3b;
+}
+
+.btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ff4444; /* rojo fuerte */
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(255, 68, 68, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  user-select: none;
+}
+
+.btn:hover {
+  background-color: #cc0000;
+  box-shadow: 0 6px 18px rgba(204, 0, 0, 0.9);
+}
+

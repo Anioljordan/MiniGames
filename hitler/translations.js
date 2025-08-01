@@ -9,6 +9,7 @@ const translations = {
     roleText: "Tu rol es: ",
     maxPlayersAlert: "Máximo 10 jugadores",
     minPlayersAlert: "Se necesitan al menos 5 jugadores.",
+    removePlayerBtn: "Eliminar jugador",
     roles: {
       fascista: "Fascista",
       hitler: "Hitler",
@@ -25,6 +26,7 @@ const translations = {
     roleText: "El teu rol és: ",
     maxPlayersAlert: "Màxim 10 jugadors",
     minPlayersAlert: "Calen almenys 5 jugadors.",
+    removePlayerBtn: "Eliminar jugador",
     roles: {
       fascista: "Fascista",
       hitler: "Hitler",
@@ -41,6 +43,7 @@ const translations = {
     roleText: "Your role is: ",
     maxPlayersAlert: "Maximum 10 players",
     minPlayersAlert: "At least 5 players are needed.",
+    removePlayerBtn: "Remove player",
     roles: {
       fascista: "Fascist",
       hitler: "Hitler",
@@ -107,10 +110,3 @@ showModal = function(name, role) {
   document.getElementById("roleModal").style.display = "flex";
 };
 
-window.onload = () => {
-  const defaultLang = 'ca';
-  const defaultFlag = document.querySelector(`.language-selector .flag[data-lang="${defaultLang}"]`);
-  if (defaultFlag) defaultFlag.classList.add("active");
-
-  changeLanguage(defaultLang);
-};

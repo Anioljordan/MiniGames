@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hitler Game</title>
+  <title>Hitler Roles</title>
   <link rel="stylesheet" href="hitler.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -13,7 +13,7 @@
 <body>
   <!-- Título principal -->
 <header class="header">
-  <h1 class="main-title">Hitler Game</h1>
+  <h1 class="main-title">Hitler Roles</h1>
 <div class="language-selector">
 <img src="/assets/es.svg" alt="ES" id="lang-es" onclick="setLanguage('es')" title="Español" class="flag" data-lang="es">
 <img src="/assets/cat.png" alt="CA" id="lang-ca" onclick="setLanguage('ca')" title="Català" class="flag" data-lang="ca">
@@ -34,7 +34,10 @@
 </div>
   <div class="buttons">
     <button onclick="addPlayer()" data-i18n="addPlayerBtn">Añadir jugador</button>
+    <button onclick="removePlayer()" data-i18n="removePlayerBtn">Eliminar jugador</button>
     <button onclick="startGame()" data-i18n="startBtn">Empezar</button>
+    <a href="/hitler-tablero/hitler-tablero.html" class="btn-left" data-i18n="optionHitlerBoard">Tablero</a>
+
   </div>
 </div>
 <h3 data-i18n="clickNameRole">Haz clic en tu nombre para ver tu rol</h3>
