@@ -1,7 +1,7 @@
 /* Fondo y fuente general */
 body {
   font-family: 'Bebas Neue', Impact, sans-serif;
-  background: linear-gradient(to bottom, #7b1e1e, #000);
+  background: linear-gradient(to bottom, #7b1e1e, #9b8787);
   color: #f0f0f0;
   padding: 20px;
   margin: 0;
@@ -9,13 +9,18 @@ body {
   background-attachment: fixed;
 }
 .main-title {
-  font-size: 3rem;
-  color: #7c7c7c;
+  font-size: 4rem;
+  color: #000000;
   letter-spacing: 2px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
   text-align: center;
   margin: 0 auto; /* para asegurar que el elemento se centre si es block */
   width: 100%; /* opcional, para que ocupe todo el ancho disponible */
+}
+.flag {
+  width: 28px !important;
+  height: 20px !important;
+  object-fit: contain;
 }
 
 
