@@ -73,7 +73,7 @@ const phrases = [
   "Yo nunca he practicado sexo de acampada",
   "Yo nunca he pensado en probar el semen",
   "Yo nunca he fardado de haber practicado sexo con alguien",
-  "Yo nunca me he avergonzado de haber tenido sexuales con alguien",
+  "Yo nunca me he avergonzado de haber tenido relaciones sexuales con alguien",
   "Yo nunca he probado alguna droga dura",
   "Yo nunca he pensado que la persona de al lado es muy sexy",
   "Yo nunca me he depilado las partes íntimas para luego no acabar follando",
@@ -202,7 +202,7 @@ const phrases = [
   "Yo nunca me he masturbado con el chorro de la ducha",
   "A mí nunca me han puesto los cuernos",
   "Yo nunca he fumado hierba",
-  "Yo nunca me he excitado pensando en alguno de los presentes",
+  "Yo nunca me he excitado con alguno de los presentes",
   "Yo nunca he intentado ligar en otro idioma",
   "Yo nunca he practicado en una orgía",
   "Yo nunca he hecho/me han hecho un chupetón",
@@ -342,15 +342,65 @@ const phraseContainer = document.getElementById('phrase-container');
 const nextBtn = document.getElementById('nextBtn');
 const resetBtn = document.getElementById('resetBtn');
 
-function getRandomPhrase() {
-  const idx = Math.floor(Math.random() * phrases.length);
-  return phrases[idx];
+
+
+// Copia de las frases para ir sacando sin repetir
+let remainingPhrases = [];
+
+// Función para resetear y preparar el array de frases
+function resetPhrases() {
+  remainingPhrases = [...phrases]; // copia del array original
+  phraseContainer.textContent = 'Pulsa el botón para empezar';
 }
 
+// Función para obtener una frase aleatoria sin repetir
+function getRandomPhraseNoRepeat() {
+  if (remainingPhrases.length === 0) {
+    return null; // no quedan frases
+  }
+  // Selecciona índice aleatorio en las frases restantes
+  const idx = Math.floor(Math.random() * remainingPhrases.length);
+  // Saca la frase y la elimina del array
+  const phrase = remainingPhrases.splice(idx, 1)[0];
+  return phrase;
+}
+
+// Evento botón siguiente
 nextBtn.addEventListener('click', () => {
-  phraseContainer.textContent = getRandomPhrase();
+  const phrase = getRandomPhraseNoRepeat();
+  if (phrase) {
+    phraseContainer.textContent = phrase;
+  } else {
+    phraseContainer.textContent = '¡Se acabaron las preguntas!';
+  }
 });
 
+// Evento botón reset
 resetBtn.addEventListener('click', () => {
-  phraseContainer.textContent = 'Pulsa el botón para empezar';
+  resetPhrases();
+});
+
+// Inicializamos
+resetPhrases();
+
+//modal
+const rulesBtn = document.getElementById('rulesBtn');
+const rulesModal = document.getElementById('rulesModal');
+const closeModal = document.getElementById('closeModal');
+
+// Abrir modal al pulsar normas
+rulesBtn.addEventListener('click', () => {
+  rulesModal.style.display = 'block';
+});
+
+// Cerrar modal al pulsar la X
+closeModal.addEventListener('click', () => {
+  rulesModal.style.display = 'none';
+});
+
+// Cerrar modal si se hace clic fuera del contenido
+window.addEventListener('click', (e) => {
+  if (e.target === rulesModal) {
+    rulesModal.style.display = 'none';
+  }
 });
