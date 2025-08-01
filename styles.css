@@ -191,9 +191,72 @@ button:nth-of-type(2) {
   max-width: 500px;
   margin-top: 20px;
 }
+/* Ya tienes esto y está perfecto para móviles */
 @media (max-width: 600px) {
   #players,
   #rolesResult {
     grid-template-columns: 1fr;
+    max-width: 100%;  /* Que ocupe todo el ancho */
+    margin: 0 auto;
   }
+
+  /* Para que los inputs no se queden muy pequeños */
+  input[type="text"] {
+    max-width: 100%;
+  }
+  
+  /* Botones con margen inferior para separarlos verticalmente */
+  button {
+    width: 100%;
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+
+  /* Modal content ajustado para pantallas pequeñas */
+  .modal-content {
+    width: 90%;
+    min-width: unset;
+    padding: 20px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .modal-content p {
+    font-size: 1.3rem;
+  }
+
+  /* El header que contiene el título y las banderas, para que se apilen */
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Ajustar la posición de las banderas */
+  .language-selector {
+    position: static;
+  }
+}
+
+/* Mejor control para la cabecera en desktop: que el título esté centrado y banderas a la derecha */
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center; /* centra el título */
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Banderas posicionadas a la derecha encima del header */
+.language-selector {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
 }
