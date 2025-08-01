@@ -1,3 +1,10 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, #7b1e1e, #9b8787);
+}
+
 /* Fondo y fuente general */
 body {
   font-family: 'Bebas Neue', Impact, sans-serif;
