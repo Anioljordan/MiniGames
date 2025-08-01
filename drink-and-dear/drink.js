@@ -3,55 +3,97 @@
   const spinBtn = document.getElementById('spinBtn');
   const result = document.getElementById('result');
 
-  const segmentCount = 12;
+  const segmentCount = 13;
   const segmentAngle = 360 / segmentCount;
   const radius = 140; // distancia texto desde centro
 
   // Crear los textos de los segmentos
-  const segments = Array.from({length: segmentCount}, (_, i) => `Reto ${i + 1}`);
+const segments = [
+  "BEBES UN TRAGO",
+  "BEBES DOS TRAGOS",
+  "REPARTES 3 TRAGOS",
+  "REPARTES 4 TRAGOS",
+  "ERES EL ESCLAVO DE TODOS DURANTE UNA RONDA",
+  "MEDUSA",
+  "SACO LLENO DE…",
+  "TE BEBES UN CHUPITO",
+  "PONER UNA NORMA",
+  "ZAS",
+  "PONER BEBIDA EN UN VASO COMÚN",
+  "TE BEBES EL VASO COMÚN SI NO HAY BEBIDA, DOS TRAGOS",
+  "SI TIENES MENOS DE LA MITAD DEL VASO, SANILARI SINO REPARTES 2 TRAGOS",
+];
 
-  // Crear etiquetas con posicionamiento y rotación para texto legible
-  segments.forEach((text, i) => {
-    const label = document.createElement('div');
-    label.className = 'segment-label';
-    const angle = i * segmentAngle + segmentAngle / 2;
-    label.style.transform = `rotate(${angle}deg) translate(${radius}px) rotate(-${angle}deg)`;
-    label.textContent = text;
-    wheel.appendChild(label);
-  });
+
 
   let rotation = 0; // grados actuales
   let velocity = 0; // velocidad angular en grados/frame
   let spinning = false;
 
   function animate() {
-    if (!spinning) return;
+  if (!spinning) return;
 
-    rotation += velocity;
-    rotation %= 360;
+  // Sumar velocidad siempre positiva para que gire sentido horario
+  rotation += Math.abs(velocity);
+  rotation %= 360;
 
-    wheel.style.transform = `rotate(${rotation}deg)`;
+  wheel.style.transform = `rotate(${rotation}deg)`;
 
-    // Frenar progresivamente
-    velocity *= 0.97; 
+  velocity -= 1; // desaceleración lineal
+  if (velocity < 0) velocity = 0; // nunca negativo
 
-    if (velocity < 0.1) {
-      spinning = false;
-      velocity = 0;
+  if (velocity === 0) {
+    spinning = false;
 
-      // Calcular el segmento ganador (ángulo invertido para que coincida con el puntero)
-// Calcular el segmento ganador (ajustar el puntero visual que está a 90°)
-const offset = 90; // porque el puntero está arriba
-const adjustedRotation = (rotation + offset) % 360;
-const normalizedDegree = (360 - adjustedRotation) % 360;
-const winningIndex = Math.floor(normalizedDegree / segmentAngle);
+    setTimeout(() => {
+      const offset = 90; // punto fijo para calcular el segmento ganador
+      const adjustedRotation = (rotation + offset) % 360;
+      const normalizedDegree = (360 - adjustedRotation) % 360;
+      const winningIndex = Math.floor(normalizedDegree / segmentAngle);
 
-      result.textContent = `¡Te toca: ${segments[winningIndex]}!`;
-      spinBtn.disabled = false;
-    } else {
-      requestAnimationFrame(animate);
-    }
+      const popup = document.getElementById('popup');
+      const popupText = document.getElementById('popup-text');
+      const popupClose = document.getElementById('popup-close');
+
+      popupText.textContent = `¡Te toca: ${segments[winningIndex]}!`;
+      popup.classList.remove('hidden');
+
+      popupClose.onclick = () => {
+        popup.classList.add('hidden');
+        spinBtn.disabled = false;
+      };
+    }, 4000); // o el tiempo que quieras
+  } else {
+    requestAnimationFrame(animate);
   }
+}
+
+spinBtn.addEventListener('click', () => {
+  if (spinning) return;
+
+  spinning = true;
+  spinBtn.disabled = true;
+  result.textContent = '';
+
+  // Velocidad inicial siempre positiva
+  velocity = Math.random() * 40 + 60; // de 60 a 100 grados/frame
+
+  requestAnimationFrame(animate);
+});
+
+
+spinBtn.addEventListener('click', () => {
+  if (spinning) return;
+
+  spinning = true;
+  spinBtn.disabled = true;
+  result.textContent = '';
+
+  velocity = Math.random() * 20 + 30; // de 30 a 50 grados/frame
+
+  requestAnimationFrame(animate);
+});
+
 
   spinBtn.addEventListener('click', () => {
     if (spinning) return;
@@ -65,4 +107,19 @@ const winningIndex = Math.floor(normalizedDegree / segmentAngle);
 
     requestAnimationFrame(animate);
   });
+
+
+  const rulesBtn = document.getElementById('rulesBtn');
+  const rulesPopup = document.getElementById('rules-popup');
+  const rulesClose = document.getElementById('rules-close');
+
+  rulesBtn.onclick = () => {
+    rulesPopup.classList.remove('hidden');
+  };
+
+  rulesClose.onclick = () => {
+    rulesPopup.classList.add('hidden');
+  };
+
+
 

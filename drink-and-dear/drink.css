@@ -1,3 +1,4 @@
+    
     body {
       font-family: 'Bebas Neue', sans-serif;
       background: linear-gradient(to bottom, #0a2342, #1b3a6b);
@@ -8,7 +9,7 @@
       justify-content: center;
       min-height: 100vh;
       margin: 0;
-      padding: 20px;
+      padding: 10px;
     }
 
     h1 {
@@ -29,38 +30,42 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      border: 10px solid #4fc3f7;
-      box-shadow: 0 0 30px #4fc3f7;
+      border: 10px solid #000000;
+      box-shadow: 0 0 30px #ace5ff;
       position: relative;
       overflow: hidden;
       transition: transform 5s cubic-bezier(0.33, 1, 0.68, 1);
       background: conic-gradient(
-        #0e4ca1 0deg 30deg,
-        #2176bb 30deg 60deg,
-        #0e4ca1 60deg 90deg,
+        #ff4b4b 0deg 30deg,
+        #fffb25 30deg 60deg,
+        #7dff31 60deg 90deg,
         #2176bb 90deg 120deg,
-        #0e4ca1 120deg 150deg,
-        #2176bb 150deg 180deg,
-        #0e4ca1 180deg 210deg,
-        #2176bb 210deg 240deg,
-        #0e4ca1 240deg 270deg,
-        #2176bb 270deg 300deg,
-        #0e4ca1 300deg 330deg,
-        #2176bb 330deg 360deg
+        #d549ff 120deg 150deg,
+        #ff8b1e 150deg 180deg,
+        #4d2500 180deg 210deg,
+        #ff0000 210deg 240deg,
+        #000266 240deg 270deg,
+        #ffffff 270deg 300deg,
+        #4b0029 300deg 330deg,
+        #00ac5c 330deg 360deg
       );
       user-select: none;
     }
 
     /* Texto de los segmentos */
-.segment-labels {
+.segment-label {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  width: 100px; /* Limita el ancho del texto */
+  text-align: center;
+  font-size: 10px; /* Ajusta según necesidad */
+  transform-origin: 0 0;
+  white-space: normal;
+  word-break: break-word;
   pointer-events: none;
-  user-select: none;
 }
+
 
 
     .segment-label {
@@ -80,20 +85,21 @@
     }
 
     /* Flecha superior */
-    .arrow {
-      position: absolute;
-      top: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0; 
-      height: 0; 
-      border-left: 25px solid transparent;
-      border-right: 25px solid transparent;
-      border-bottom: 40px solid #4fc3f7;
-      filter: drop-shadow(0 0 6px #4fc3f7);
-      z-index: 20;
-      user-select: none;
-    }
+.arrow {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 40px solid #4fc3f7; /* ← ahora apunta hacia arriba */
+  filter: drop-shadow(0 0 6px #4fc3f7);
+  z-index: 20;
+  user-select: none;
+}
+
 
     button {
       background-color: #0288d1;
@@ -107,6 +113,7 @@
       box-shadow: 0 6px 14px rgba(2,136,209,0.7);
       transition: background-color 0.3s ease;
       user-select: none;
+      margin-bottom: 20px;
     }
     button:hover {
       background-color: #015a8e;
@@ -147,3 +154,64 @@
         font-size: 1rem;
       }
     }
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.popup-content {
+  background: rgb(0, 0, 0);
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 20px;
+  max-width: 80%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#popup-close {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+.footer {
+  background-color: #0a2342;
+  color: #87cefa;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links li a {
+  color: #4fc3f7;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-links li a:hover {
+  color: #81d4fa;
+}
