@@ -26,6 +26,16 @@ function addPlayer() {
 function startGame() {
   const lang = getCurrentLanguage();
 
+  const confirmTexts = {
+    es: '¿Seguro que quieres empezar la partida? Los roles se asignarán y no podrás cambiar los nombres.',
+    ca: 'Segur que vols començar la partida? Els rols s\'assignaran i no podràs canviar els noms.',
+    en: 'Are you sure you want to start the game? Roles will be assigned and you will not be able to change names.'
+  };
+
+  if (!confirm(confirmTexts[lang] || confirmTexts['es'])) {
+    return; // Si cancelas, no empieza el juego
+  }
+
   const inputs = document.querySelectorAll("#players input");
   const players = Array.from(inputs)
     .map(input => input.value.trim() || input.placeholder)
@@ -47,7 +57,12 @@ function startGame() {
   }));
 
   renderPlayers();
+
+  // Aquí guardarías assignedRoles en localStorage si quieres persistencia
+  localStorage.setItem('assignedRoles', JSON.stringify(assignedRoles));
 }
+
+
 
 
 function generateSecretHitlerRoles(numPlayers, lang) {
@@ -114,3 +129,44 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 };
+window.onload = () => {
+  // Recuperar jugadores guardados
+  const savedPlayers = JSON.parse(localStorage.getItem('savedPlayers') || '[]');
+  const playersDiv = document.getElementById("players");
+
+  // Vaciar inputs actuales
+  playersDiv.innerHTML = '';
+
+  // Si hay jugadores guardados, los cargamos
+  if (savedPlayers.length > 0) {
+    savedPlayers.forEach((name, i) => {
+      const input = document.createElement("input");
+      input.type = "text";
+      // Si el nombre es vacío o igual al placeholder, dejamos placeholder
+      const lang = getCurrentLanguage();
+      const placeholder = translations[lang].playerPlaceholder + (i + 1);
+      if (!name || name.trim() === '' || name === placeholder) {
+        input.placeholder = placeholder;
+      } else {
+        input.value = name;
+      }
+      playersDiv.appendChild(input);
+    });
+  } else {
+    // Si no hay nada guardado, ponemos un input por defecto
+    const input = document.createElement("input");
+    input.type = "text";
+    const lang = getCurrentLanguage();
+    input.placeholder = translations[lang].playerPlaceholder + '1';
+    playersDiv.appendChild(input);
+  }
+
+  // Recuperar roles asignados
+  const savedRoles = JSON.parse(localStorage.getItem('assignedRoles') || '[]');
+  if (savedRoles.length > 0) {
+    assignedRoles = savedRoles;
+    renderPlayers();
+  }
+};
+
+
