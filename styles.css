@@ -8,6 +8,53 @@ body {
   min-height: 100vh;
   background-attachment: fixed;
 }
+.main-title {
+  font-size: 3rem;
+  color: #7c7c7c;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-align: center;
+  margin: 0 auto; /* para asegurar que el elemento se centre si es block */
+  width: 100%; /* opcional, para que ocupe todo el ancho disponible */
+}
+
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.language-selector .flag {
+  width: 28px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.language-selector .flag:hover {
+  border-color: #777;
+}
+
+.language-selector .flag.active {
+  border-color: #f5b942; /* color dorado para destacar */
+  box-shadow: 0 0 5px #f5b942;
+}
+
+
+
 
 /* Títulos */
 h2, h3 {
@@ -20,9 +67,27 @@ h2, h3 {
 #players {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px 20px;
-  max-width: 450px;
+  gap: 10px 50px;
+  max-width: 350px;
   margin-bottom: 20px;
+}
+input[type="text"] {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #999;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  background-color: #f5f5f5;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #d32f2f; /* rojo fascista */
+  box-shadow: 0 0 6px rgba(211, 47, 47, 0.7);
+  background-color: #fff;
 }
 
 /* Botones principales */
@@ -118,4 +183,17 @@ button:nth-of-type(2) {
 
 .close-button:hover {
   background-color: #235a96;
+}
+#rolesResult {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+  max-width: 500px;
+  margin-top: 20px;
+}
+@media (max-width: 600px) {
+  #players,
+  #rolesResult {
+    grid-template-columns: 1fr;
+  }
 }

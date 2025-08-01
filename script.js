@@ -1,22 +1,31 @@
 let maxPlayers = 10;
 let assignedRoles = [];
+function getCurrentLanguage() {
+  return document.querySelector(".language-selector .flag.active")?.getAttribute("data-lang") || 'es';
+}
+
 
 function addPlayer() {
   const playersDiv = document.getElementById("players");
   const count = playersDiv.getElementsByTagName("input").length;
 
+  const lang = getCurrentLanguage();
+
   if (count >= maxPlayers) {
-    alert("Máximo 10 jugadores");
+    alert(translations[lang].maxPlayersAlert);
     return;
   }
 
   const input = document.createElement("input");
   input.type = "text";
-  input.placeholder = "Player " + (count + 1);
+  input.placeholder = translations[lang].playerPlaceholder + (count + 1);
   playersDiv.appendChild(input);
 }
 
+
 function startGame() {
+  const lang = getCurrentLanguage();
+
   const inputs = document.querySelectorAll("#players input");
   const players = Array.from(inputs)
     .map(input => input.value.trim() || input.placeholder)
@@ -25,11 +34,11 @@ function startGame() {
   const numPlayers = players.length;
 
   if (numPlayers < 5) {
-    alert("Se necesitan al menos 5 jugadores.");
+    alert(translations[lang].minPlayersAlert);
     return;
   }
 
-  const roles = generateSecretHitlerRoles(numPlayers);
+  const roles = generateSecretHitlerRoles(numPlayers, lang);
   const shuffledRoles = shuffleArray(roles);
 
   assignedRoles = players.map((name, i) => ({
@@ -40,7 +49,8 @@ function startGame() {
   renderPlayers();
 }
 
-function generateSecretHitlerRoles(numPlayers) {
+
+function generateSecretHitlerRoles(numPlayers, lang) {
   let fachas = 0;
   let hitlers = 1;
   let liberales = 0;
@@ -57,12 +67,13 @@ function generateSecretHitlerRoles(numPlayers) {
 
   const roles = [];
 
-  for (let i = 0; i < fachas; i++) roles.push("Fascista");
-  roles.push("Hitler");
-  for (let i = 0; i < liberales; i++) roles.push("Liberal");
+  for (let i = 0; i < fachas; i++) roles.push(translations[lang].roles.fascista);
+  roles.push(translations[lang].roles.hitler);
+  for (let i = 0; i < liberales; i++) roles.push(translations[lang].roles.liberal);
 
   return roles;
 }
+
 
 function shuffleArray(array) {
   return array
@@ -85,10 +96,13 @@ function renderPlayers() {
 }
 
 function showModal(name, role) {
+  const lang = getCurrentLanguage();
+
   document.getElementById("modalPlayerName").textContent = name;
-  document.getElementById("modalPlayerRole").textContent = `Tu rol es: ${role}`;
+  document.getElementById("modalPlayerRole").textContent = translations[lang].roleText + role;
   document.getElementById("roleModal").style.display = "flex";
 }
+
 
 function closeModal() {
   document.getElementById("roleModal").style.display = "none";

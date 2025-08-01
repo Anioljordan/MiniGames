@@ -8,27 +8,41 @@
 
 </head>
 <body>
+  <!-- Título principal -->
+<header class="header">
+  <h1 class="main-title">Hitler Game</h1>
+<div class="language-selector">
+  <img src="https://flagcdn.com/w20/es.png" alt="Castellano" class="flag" data-lang="es" onclick="setLanguage('es')" title="Castellano" />
+  <img src="https://flagcdn.com/w20/ad.png" alt="Català" class="flag" data-lang="ca" onclick="setLanguage('ca')" title="Català" />
+  <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag" data-lang="en" onclick="setLanguage('en')" title="English" />
+</div>
 
-  <h2>Jugadores</h2>
-  <div id="players">
-    <input type="text" placeholder="Player 1" />
+</header>
+
+
+  <h2 data-i18n="playersTitle">Jugadores</h2>
+<div id="players">
+  <input type="text" placeholder="Player 1" data-i18n-placeholder="playerPlaceholder" />
+</div>
+
+<button onclick="addPlayer()" data-i18n="addPlayerBtn">Añadir jugador</button>
+<button onclick="startGame()" data-i18n="startBtn">Empezar</button>
+
+<h3 data-i18n="clickNameRole">Haz clic en tu nombre para ver tu rol</h3>
+<div id="rolesResult"></div>
+
+<!-- Modal -->
+<div id="roleModal" class="modal">
+  <div class="modal-content">
+    <h2 id="modalPlayerName"></h2>
+    <p id="modalPlayerRole"></p>
+    <button class="close-button" onclick="closeModal()" data-i18n="closeBtn">Cerrar</button>
   </div>
+</div>
 
-  <button onclick="addPlayer()">Añadir jugador</button>
-  <button onclick="startGame()">Empezar</button>
-
-  <h3>Haz clic en tu nombre para ver tu rol</h3>
-  <div id="rolesResult"></div>
-
-  <!-- Modal -->
-  <div id="roleModal" class="modal">
-    <div class="modal-content">
-      <h2 id="modalPlayerName"></h2>
-      <p id="modalPlayerRole"></p>
-      <button class="close-button" onclick="closeModal()">Cerrar</button>
-    </div>
-  </div>
 
   <script src="script.js"></script>
+  <script src="translations.js"></script>
 </body>
+
 </html>
