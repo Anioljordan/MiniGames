@@ -102,7 +102,6 @@ input[type="text"] {
   font-size: 1rem;
   border: 2px solid #999;
   border-radius: 8px;
-  width: 100%;
   max-width: 250px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
@@ -277,7 +276,7 @@ button:nth-of-type(2) {
   #players,
   #rolesResult {
     grid-template-columns: 1fr;
-    max-width: 90%;  /* Que ocupe todo el ancho */
+    max-width: 100%;  /* Que ocupe todo el ancho */
     margin: 0 auto;
   }
 
