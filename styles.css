@@ -2,13 +2,13 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background: linear-gradient(to bottom, #7b1e1e, #9b8787);
+  background: linear-gradient(to bottom, #7b1e1e, #272727);
 }
 
 /* Fondo y fuente general */
 body {
   font-family: 'Bebas Neue', Impact, sans-serif;
-  background: linear-gradient(to bottom, #7b1e1e, #9b8787);
+  background: linear-gradient(to bottom, #7b1e1e, #272727);
   color: #f0f0f0;
   padding: 20px;
   margin: 0;
@@ -32,16 +32,21 @@ body {
 
 
 
+/* Mejor control para la cabecera en desktop: que el título esté centrado y banderas a la derecha */
 .header {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* centra el título */
   align-items: center;
   margin-bottom: 30px;
 }
 
-
-
+/* Banderas posicionadas a la derecha encima del header */
 .language-selector {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -208,7 +213,7 @@ button:nth-of-type(2) {
   #players,
   #rolesResult {
     grid-template-columns: 1fr;
-    max-width: 100%;  /* Que ocupe todo el ancho */
+    max-width: 90%;  /* Que ocupe todo el ancho */
     margin: 0 auto;
   }
 
@@ -261,23 +266,4 @@ button:nth-of-type(2) {
 
 }
 
-/* Mejor control para la cabecera en desktop: que el título esté centrado y banderas a la derecha */
-.header {
-  position: relative;
-  display: flex;
-  justify-content: center; /* centra el título */
-  align-items: center;
-  margin-bottom: 30px;
-}
 
-/* Banderas posicionadas a la derecha encima del header */
-.language-selector {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
