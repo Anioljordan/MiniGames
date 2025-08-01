@@ -21,35 +21,37 @@
 
     .wheel-container {
       position: relative;
-      width: 400px;
-      height: 400px;
+      width: 550px;
+      height: 550px;
       margin-bottom: 50px;
     }
 
-    .wheel {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 10px solid #000000;
-      box-shadow: 0 0 30px #ace5ff;
-      position: relative;
-      overflow: hidden;
-      background: conic-gradient(
-        #ff0000 0deg 30deg,
-        #fffb25 30deg 60deg,
-        #006300 60deg 90deg,
-        #0004fd 90deg 120deg,
-        #5c3100 120deg 150deg,
-        #ff0000 150deg 180deg,
-        #fffb25 180deg 210deg,
-        #006300 210deg 240deg,
-        #0004fd 240deg 270deg,
-        #ffffff 270deg 300deg,
-        #5c3100 300deg 330deg,
-        #ffffff 330deg 360deg
-      );
-      user-select: none;
-    }
+.wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 10px solid #000000;
+  box-shadow: 0 0 30px #ace5ff;
+  position: relative;
+  overflow: hidden;
+  background: conic-gradient(
+    #ff0000 0deg 27.69deg,
+    #ff6600 27.69deg 55.38deg,
+    #fffb25 55.38deg 83.08deg,
+    #006300 83.08deg 110.77deg,
+    #0030b6 110.77deg 138.46deg,
+    #5a0096 138.46deg 166.15deg,
+    #ff0000 166.15deg 193.85deg,
+    #ff6600 193.85deg 221.54deg,
+    #fffb25 221.54deg 249.23deg,
+    #006300 249.23deg 276.92deg,
+    #0030b6 276.92deg 304.62deg,
+    #5a0096 304.62deg 332.31deg,
+    #ffffff 332.31deg 360deg
+  );
+  user-select: none;
+}
+
 
     /* Texto de los segmentos */
 .segment-label {
