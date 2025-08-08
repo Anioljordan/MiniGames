@@ -21,6 +21,7 @@ const phrases = [
   "A la de 3 todos señalan al jugador que creen que es mas probable que duerma acompañado esta noche, el jugador mas señalado bebe 2 tragos",
   "A la de 3 todos señalan al jugador con más pinta de criminal, el jugador más señalado bebe 4 tragos.",
 
+  
   "¿Quién es más probable que se duerma en una fiesta? El jugador más votado bebe 3 tragos.",
 
   "A la de 3 todos señalan al jugador que creen que ligaría incluso en un funeral, el jugador más señalado reparte 3 tragos.",
@@ -74,6 +75,12 @@ const phrases = [
   "¿Quién es más probable que haya mentido sobre con cuántas personas ha estado? El jugador más votado reparte 2 tragos",
   "A la de 3 todos señalan al jugador que creen que es más probable que tenga una aventura con alguien mucho mayor, el jugador más señalado bebe 3 tragos",
   "¿Quién es más probable que tenga sexo esta noche? El jugador más votado bebe 5 tragos",
+
+  "Quien tiene talentos mas absurdos. La persona bebe 3 tragos",
+  "Quien es mas probable que se lie con alguien y no se acuerde la mañana siguiente. La persona bebe dos tragos.",
+  "Quien es mas probable que le despidan mas rapido en un trabajo nuevo. La persona mas votada bebe 4 tragos.",
+  
+  
 ];
 
 const phraseContainer = document.getElementById("phrase-container");
