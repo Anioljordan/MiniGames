@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -14,12 +15,14 @@ main {
   flex: 1;
   padding: 20px;
 }
+
 /* Fondo y fuente general */
 body {
   font-family: 'Bebas Neue', Impact, sans-serif;
   color: #f0f0f0;
   margin: 0;
-  flex: 1; /* hace que el contenido crezca */
+  flex: 1;
+  /* hace que el contenido crezca */
   display: flex;
   flex-direction: column;
 }
@@ -28,11 +31,14 @@ body {
   font-size: 4rem;
   color: #000000;
   letter-spacing: 2px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   text-align: center;
-  margin: 0 auto; /* para asegurar que el elemento se centre si es block */
-  width: 100%; /* opcional, para que ocupe todo el ancho disponible */
+  margin: 0 auto;
+  /* para asegurar que el elemento se centre si es block */
+  width: 100%;
+  /* opcional, para que ocupe todo el ancho disponible */
 }
+
 .flag {
   width: 28px !important;
   height: 20px !important;
@@ -45,7 +51,8 @@ body {
 .header {
   position: relative;
   display: flex;
-  justify-content: center; /* centra el título */
+  justify-content: center;
+  /* centra el título */
   align-items: center;
   margin-bottom: 30px;
 }
@@ -75,7 +82,8 @@ body {
 }
 
 .language-selector .flag.active {
-  border-color: #f5b942; /* color dorado para destacar */
+  border-color: #f5b942;
+  /* color dorado para destacar */
   box-shadow: 0 0 5px #f5b942;
 }
 
@@ -83,7 +91,8 @@ body {
 
 
 /* Títulos */
-h2, h3 {
+h2,
+h3 {
   color: #ffcc66;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -97,6 +106,7 @@ h2, h3 {
   max-width: 350px;
   margin-bottom: 20px;
 }
+
 input[type="text"] {
   padding: 10px 15px;
   font-size: 1rem;
@@ -110,7 +120,8 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  border-color: #d32f2f; /* rojo fascista */
+  border-color: #d32f2f;
+  /* rojo fascista */
   box-shadow: 0 0 6px rgba(211, 47, 47, 0.7);
   background-color: #fff;
 }
@@ -132,12 +143,14 @@ button:hover {
 }
 
 button:nth-of-type(1) {
-  background-color: #337ab7; /* azul liberal */
+  background-color: #337ab7;
+  /* azul liberal */
   color: white;
 }
 
 button:nth-of-type(2) {
-  background-color: #b71c1c; /* rojo fascista */
+  background-color: #b71c1c;
+  /* rojo fascista */
   color: white;
 }
 
@@ -166,8 +179,10 @@ button:nth-of-type(2) {
   display: none;
   position: fixed;
   z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
@@ -209,6 +224,7 @@ button:nth-of-type(2) {
 .close-button:hover {
   background-color: #235a96;
 }
+
 #rolesResult {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -260,7 +276,8 @@ button:nth-of-type(2) {
   position: fixed;
   top: 20px;
   left: 20px;
-  background-color: #007bff; /* azul fuerte */
+  background-color: #007bff;
+  /* azul fuerte */
   color: white;
   padding: 10px 18px;
   border-radius: 8px;
@@ -279,6 +296,9 @@ button:nth-of-type(2) {
 }
 
 
+
+
+
 @media (max-width: 600px) {
   .buttons {
     flex-direction: column;
@@ -294,10 +314,12 @@ button:nth-of-type(2) {
 
 /* Ya tienes esto y está perfecto para móviles */
 @media (max-width: 600px) {
+
   #players,
   #rolesResult {
     grid-template-columns: 1fr;
-    max-width: 100%;  /* Que ocupe todo el ancho */
+    max-width: 100%;
+    /* Que ocupe todo el ancho */
     margin: 0 auto;
   }
 
@@ -305,7 +327,7 @@ button:nth-of-type(2) {
   input[type="text"] {
     max-width: 100%;
   }
-  
+
   /* Botones con margen inferior para separarlos verticalmente */
   button {
     width: 100%;
@@ -323,10 +345,11 @@ button:nth-of-type(2) {
   .modal-content h2 {
     font-size: 1.8rem;
   }
-  
+
   .modal-content p {
     font-size: 1.3rem;
   }
+
   .main-title {
     max-width: 90%;
     word-break: break-word;
@@ -334,20 +357,18 @@ button:nth-of-type(2) {
   }
 
   /* El header que contiene el título y las banderas, para que se apilen */
-.header {
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding-top: 10px;
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+  }
+
+  .language-selector {
+    position: static !important;
+    transform: none !important;
+    margin-top: 10px;
+    z-index: auto;
+  }
+
 }
-
-.language-selector {
-  position: static !important;
-  transform: none !important;
-  margin-top: 10px;
-  z-index: auto;
-}
-
-}
-
-

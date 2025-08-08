@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="title">Piccolo</title>
+    <link rel="stylesheet" href="piccolo.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1 data-i18n="title">Piccolo</h1>
+    </header>
+
+    <main>
+        <a href="menu.html" id="backToMenuBtn">⬅ Volver al menú</a>
+
+        <div id="phrase-container" class="phrase" data-i18n="startMessage">Pulsa el botón para empezar</div>
+        <button id="nextBtn" data-i18n="nextBtn">Siguiente Pregunta</button>
+        <button id="resetBtn" data-i18n="resetBtn">Resetear</button>
+        <button id="rulesBtn">Normas</button>
+    </main>
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Normas del juego</h2>
+            <ul>
+                <li>Se lee la pregunta en voz alta.</li>
+                <li>Si has hecho la acción, debes beber un trago.</li>
+                <li>Si alguien bebe y te interesa el porque ha bebido, le puedes comprar la historia por un numero de
+                    tragos razonable a elegir por el contador de la historia .</li>
+                <li>El juego continúa con la siguiente pregunta.</li>
+            </ul>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Creado por Aniol Jordán</p>
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/aniol-jord%C3%A1n-l%C3%B3pez-35854123a/"
+                        target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.instagram.com/aniol.dev" target="_blank">Instagram</a></li>
+                <li><a href="https://github.com/Anioljordan" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

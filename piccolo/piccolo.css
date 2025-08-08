@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    background: linear-gradient(to bottom, #0a2342, #1b3a6b);
+    color: #e0f0ff;
+    margin: 0;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: #4fc3f7;
+    /* azul claro */
+    text-shadow: 1px 1px 4px rgba(0, 105, 160, 0.8);
+    letter-spacing: 4px;
+}
+
+main {
+
+    flex: 1;
+    padding: 20px;
+
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+}
+
+.phrase {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    min-height: 120px;
+    padding: 20px 30px;
+    background: rgba(79, 195, 247, 0.15);
+    /* azul suave semitransparente */
+    border-radius: 16px;
+    box-shadow: 0 0 20px #4fc3f7;
+    color: #e1f5fe;
+    user-select: none;
+}
+
+button {
+    background-color: #0288d1;
+    /* azul fuerte */
+    border: none;
+    padding: 14px 28px;
+    margin: 10px;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 10px rgba(2, 136, 209, 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #015a8e;
+    box-shadow: 0 6px 14px rgba(1, 90, 142, 0.9);
+}
+
+.footer {
+    background-color: #0a2342;
+    color: #87cefa;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links li a {
+    color: #4fc3f7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-links li a:hover {
+    color: #81d4fa;
+}
+
+.language-selector {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.language-selector .flag {
+    cursor: pointer;
+    width: 40px;
+    height: 25px;
+    margin: 0 8px;
+    vertical-align: middle;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.3));
+}
+
+.language-selector .flag.selected {
+    border-color: #4fc3f7;
+    filter: drop-shadow(0 0 8px #4fc3f7);
+}
+
+/* Modal oculto por defecto */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #0a2342;
+    margin: 10% auto;
+    padding: 30px;
+    /* un poco más de espacio */
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    color: #e0f0ff;
+    box-shadow: 0 0 15px #4fc3f7;
+    font-size: 1.4rem;
+    /* texto más grande */
+    line-height: 1.4;
+}
+
+/* Botón cerrar */
+.close {
+    color: #4fc3f7;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #81d4fa;
+}
+
+/* Botón normas */
+#rulesBtn {
+    background-color: #0277bd;
+    border: none;
+    padding: 14px 28px;
+    margin: 10px;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 10px rgba(2, 119, 189, 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#rulesBtn:hover {
+    background-color: #014c75;
+    box-shadow: 0 6px 14px rgba(1, 76, 117, 0.9);
+}
+
+#backToMenuBtn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    padding: 8px 14px;
+    background-color: #222;
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    border-radius: 6px;
+    font-size: 16px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+#backToMenuBtn:hover {
+    background-color: #444;
+}

@@ -1,66 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Drink and Dare - Ruleta Mejorada</title>
-    <link rel="stylesheet" href="drink.css" />
+  <link rel="stylesheet" href="drink.css" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
 
 </head>
+
 <body>
 
   <h1>Drink and Dare - Ruleta</h1>
 
-<div class="wheel-container">
-  <div class="arrow"></div>
-  <div class="wheel" id="wheel">
-    <div class="segment-labels" id="segmentLabels"></div> <!-- movido dentro -->
+  <div class="wheel-container">
+    <div class="arrow"></div>
+    <div class="wheel" id="wheel">
+      <div class="segment-labels" id="segmentLabels"></div> <!-- movido dentro -->
+    </div>
   </div>
-</div>
+  <a href="/index.html" id="backToMenuBtn">⬅ </a>
 
 
   <button id="spinBtn">Girar Ruleta</button>
-<button id="rulesBtn">Normas del juego</button>
+  <button id="rulesBtn">Normas del juego</button>
 
-<!-- Popup de Normas -->
-<div id="rules-popup" class="popup hidden">
-  <div class="popup-content">
-    <h2>Normas del Juego</h2>
-    <ul style="text-align: left; margin-top: 10px;">
-      <li>❗ Si sacas “Poner una norma”, debes inventarte una nueva regla que todos deben cumplir durante todo el juego.</li>
-<li>🥃 Si alguien rompe una norma, ¡bebe!</li>
-<li>🌀 Las normas se acumulan.</li>
-<li>🤙 Quien saque “ZAS” tiene el poder de decir "ZAS" durante una ronda entera (o hasta que a otro le toque). El último en decir "ZAS" y hacer el gesto 🤙 pierde y bebe.</li>
-<li>🗣 Si sale “Medusa”, ¡todos deben mirarse! Los que hagan contacto visual van quedando eliminados por rondas y deben beber. Los últimos que queden sin mirar a nadie son los ganadores.</li>
-<li>💰 “Saco lleno de...” — Di una temática y, por turnos, tendréis que decir algo relacionado. Si alguien no puede, pierde y bebe. (Ejemplo: “Saco lleno de frutas” → “Manzana”, “Plátano”, ...)</li>
+  <!-- Popup de Normas -->
+  <div id="rules-popup" class="popup hidden">
+    <div class="popup-content">
+      <h2>Normas del Juego</h2>
+      <ul style="text-align: left; margin-top: 10px;">
+        <li>❗ Si sacas “Poner una norma”, debes inventarte una nueva regla que todos deben cumplir durante todo el
+          juego.</li>
+        <li>🥃 Si alguien rompe una norma, ¡bebe!</li>
+        <li>🌀 Las normas se acumulan.</li>
+        <li>🤙 Quien saque “ZAS” tiene el poder de decir "ZAS" durante una ronda entera (o hasta que a otro le toque).
+          El último en decir "ZAS" y hacer el gesto 🤙 pierde y bebe.</li>
+        <li>🗣 Si sale “Medusa”, ¡todos deben mirarse! Los que hagan contacto visual van quedando eliminados por rondas
+          y deben beber. Los últimos que queden sin mirar a nadie son los ganadores.</li>
+        <li>💰 “Saco lleno de...” — Di una temática y, por turnos, tendréis que decir algo relacionado. Si alguien no
+          puede, pierde y bebe. (Ejemplo: “Saco lleno de frutas” → “Manzana”, “Plátano”, ...)</li>
 
-    </ul>
-    <button id="rules-close">Cerrar</button>
+      </ul>
+      <button id="rules-close">Cerrar</button>
+    </div>
   </div>
-</div>
 
   <div id="result"></div>
 
-<script src="drink.js"></script>
-<!-- Modal -->
-<div id="popup" class="popup hidden">
-  <div class="popup-content">
-    <p id="popup-text"></p>
-    <button id="popup-close">OK</button>
+  <script src="drink.js"></script>
+  <!-- Modal -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <p id="popup-text"></p>
+      <button id="popup-close">OK</button>
+    </div>
   </div>
-</div>
 
   <footer class="footer">
     <div class="footer-content">
       <p>Creado por Aniol Jordán</p>
       <ul class="footer-links">
-        <li><a href="https://www.linkedin.com/in/aniol-jord%C3%A1n-l%C3%B3pez-35854123a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-        <li><a href="https://www.instagram.com/aniol.dev" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/aniol-jord%C3%A1n-l%C3%B3pez-35854123a/" target="_blank"><i
+              class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/aniol.dev" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        </li>
         <li><a href="https://github.com/Anioljordan" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
       </ul>
     </div>
   </footer>
 
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +8,35 @@
   <title>Hitler Game - Reparto de Cartas</title>
 
 </head>
-<body>
 
+<body>
+  <a href="/index.html" id="backToMenuBtn">⬅ </a>
   <h1>Hitler Game - Reparto de Cartas</h1>
 
-<!-- Tablero de leyes liberales -->
-<div class="leyes liberal">
-  <h3>Liberales</h3>
-  <div class="casillas">
-    <div class="casilla"></div>
-    <div class="casilla"></div>
-    <div class="casilla"></div>
-    <div class="casilla"></div>
-    <div class="casilla"></div>
+  <!-- Tablero de leyes liberales -->
+  <div class="leyes liberal">
+    <h3>Liberales</h3>
+    <div class="casillas">
+      <div class="casilla"></div>
+      <div class="casilla"></div>
+      <div class="casilla"></div>
+      <div class="casilla"></div>
+      <div class="casilla"></div>
+    </div>
   </div>
-</div>
 
-<!-- Tablero de leyes fachas -->
-<div class="leyes facha">
-  <h3>Fachas</h3>
-  <div class="casillas">
-    <div class="casilla"></div>
-    <div class="casilla"></div>
-    <div class="casilla"></div>
-    <div class="casilla"></div>
-    <div class="casilla"></div>
-    <div class="casilla"></div>
+  <!-- Tablero de leyes fachas -->
+  <div class="leyes facha">
+    <h3>Fachas</h3>
+    <div class="casillas">
+      <div class="casilla"></div>
+      <div class="casilla"></div>
+      <div class="casilla"></div>
+      <div class="casilla"></div>
+      <div class="casilla"></div>
+      <div class="casilla"></div>
+    </div>
   </div>
-</div>
 
 
   <div>
@@ -46,7 +48,8 @@
     <div class="modal-content">
       <h2>Presidente: escoge 2 cartas</h2>
       <div class="cartas-modal" id="cartasPresidente"></div>
-      <button class="close-btn" onclick="cerrarModalPresidente()" id="btnCerrarPresidente" disabled>Pasar al Canciller</button>
+      <button class="close-btn" onclick="cerrarModalPresidente()" id="btnCerrarPresidente" disabled>Pasar al
+        Canciller</button>
     </div>
   </div>
 
@@ -58,21 +61,22 @@
     </div>
   </div>
 
-<a href="/Hitler/hitler/hitler.html" class="btn">Roles</a>
+  <a href="/Hitler/hitler/hitler.html" class="btn">Roles</a>
 
 
-<button id="botonReiniciar" onclick="abrirModalReinicio()">Reiniciar Juego</button>
+  <button id="botonReiniciar" onclick="abrirModalReinicio()">Reiniciar Juego</button>
 
 
-<!-- Modal de confirmación para reiniciar -->
-<div class="modal" id="modalConfirmarReinicio" style="display:none; justify-content:center; align-items:center;">
-  <div class="modal-content">
-    <h2>¿Estás seguro que quieres reiniciar el juego?</h2>
-    <button onclick="confirmarReinicio()">Sí, reiniciar</button>
-    <button onclick="cancelarReinicio()">Cancelar</button>
+  <!-- Modal de confirmación para reiniciar -->
+  <div class="modal" id="modalConfirmarReinicio" style="display:none; justify-content:center; align-items:center;">
+    <div class="modal-content">
+      <h2>¿Estás seguro que quieres reiniciar el juego?</h2>
+      <button onclick="confirmarReinicio()">Sí, reiniciar</button>
+      <button onclick="cancelarReinicio()">Cancelar</button>
+    </div>
   </div>
-</div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
