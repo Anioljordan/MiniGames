@@ -83,67 +83,88 @@ const phrases = [
   
 ];
 
+
 const phraseContainer = document.getElementById("phrase-container");
 const nextBtn = document.getElementById("nextBtn");
 const resetBtn = document.getElementById("resetBtn");
 
-// Copia de las frases para ir sacando sin repetir
 let remainingPhrases = [];
+let currentPhrase = "";
 
-// Función para resetear y preparar el array de frases
-function resetPhrases() {
-  remainingPhrases = [...phrases]; // copia del array original
-  phraseContainer.textContent = "Pulsa el botón para empezar";
+// Cargar partida guardada o iniciar nueva
+function loadGame() {
+  const savedPhrases = localStorage.getItem("remainingPhrases");
+  const savedCurrentPhrase = localStorage.getItem("currentPhrase");
+
+  if (savedPhrases) {
+    remainingPhrases = JSON.parse(savedPhrases);
+  } else {
+    remainingPhrases = [...phrases];
+  }
+
+  if (savedCurrentPhrase) {
+    currentPhrase = savedCurrentPhrase;
+    phraseContainer.textContent = currentPhrase;
+  } else {
+    phraseContainer.textContent = "Pulsa el botón para empezar";
+  }
 }
 
-// Función para obtener una frase aleatoria sin repetir
+// Guardar estado actual
+function saveGame() {
+  localStorage.setItem("remainingPhrases", JSON.stringify(remainingPhrases));
+  localStorage.setItem("currentPhrase", currentPhrase);
+}
+
+// Obtener frase aleatoria sin repetir
 function getRandomPhraseNoRepeat() {
   if (remainingPhrases.length === 0) {
-    return null; // no quedan frases
+    return null;
   }
-  // Selecciona índice aleatorio en las frases restantes
   const idx = Math.floor(Math.random() * remainingPhrases.length);
-  // Saca la frase y la elimina del array
   const phrase = remainingPhrases.splice(idx, 1)[0];
   return phrase;
 }
 
-// Evento botón siguiente
+// Botón siguiente
 nextBtn.addEventListener("click", () => {
   const phrase = getRandomPhraseNoRepeat();
   if (phrase) {
+    currentPhrase = phrase;
     phraseContainer.textContent = phrase;
   } else {
-    phraseContainer.textContent = "¡Se acabaron las preguntas!";
+    currentPhrase = "¡Se acabaron las preguntas!";
+    phraseContainer.textContent = currentPhrase;
   }
+  saveGame();
 });
 
-// Evento botón reset
+// Botón reset
 resetBtn.addEventListener("click", () => {
-  resetPhrases();
+  remainingPhrases = [...phrases];
+  currentPhrase = "Pulsa el botón para empezar";
+  phraseContainer.textContent = currentPhrase;
+  saveGame();
 });
 
-// Inicializamos
-resetPhrases();
-
-//modal
+// Modal de normas
 const rulesBtn = document.getElementById("rulesBtn");
 const rulesModal = document.getElementById("rulesModal");
 const closeModal = document.getElementById("closeModal");
 
-// Abrir modal al pulsar normas
 rulesBtn.addEventListener("click", () => {
   rulesModal.style.display = "block";
 });
 
-// Cerrar modal al pulsar la X
 closeModal.addEventListener("click", () => {
   rulesModal.style.display = "none";
 });
 
-// Cerrar modal si se hace clic fuera del contenido
 window.addEventListener("click", (e) => {
   if (e.target === rulesModal) {
     rulesModal.style.display = "none";
   }
 });
+
+// Iniciar
+loadGame();
