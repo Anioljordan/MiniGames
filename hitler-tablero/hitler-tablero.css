@@ -1,21 +1,300 @@
+/* Reset y básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #121625, #1e1e2f);
-  color: white;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  color: #f0f0f0;
+  background: linear-gradient(to bottom, #7b1e1e, #272727);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
   min-height: 100vh;
-  box-sizing: border-box;
+}
+
+/* Contenedor principal */
+body {
+  padding: 20px;
   gap: 30px;
+  flex: 1;
+  align-items: center;
+}
+
+/* Títulos */
+h1,
+h2,
+h3 {
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
 h1 {
-  margin-bottom: 20px;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  font-size: 3.5rem;
+  color: #000000;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 100%;
 }
 
+h2,
+h3 {
+  color: #ffcc66;
+}
+
+/* HEADER */
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Título principal header */
+.main-title {
+  font-size: 4rem;
+  color: #000000;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Selector de idioma */
+.language-selector {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.language-selector .flag {
+  width: 28px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.language-selector .flag:hover {
+  border-color: #777;
+}
+
+.language-selector .flag.active {
+  border-color: #f5b942;
+  box-shadow: 0 0 5px #f5b942;
+}
+
+/* Contenido principal */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Secciones */
+section {
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* INPUTS jugadores */
+#players {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 50px;
+  max-width: 350px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+input[type="text"] {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #999;
+  border-radius: 8px;
+  max-width: 250px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #d32f2f;
+  box-shadow: 0 0 6px rgba(211, 47, 47, 0.7);
+  background-color: #fff;
+}
+
+/* Botones principales */
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.buttons button {
+  padding: 12px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease;
+  color: white;
+}
+
+.buttons button:nth-of-type(1) {
+  background-color: #337ab7; /* azul liberal */
+}
+
+.buttons button:nth-of-type(1):hover {
+  background-color: #286090;
+}
+
+.buttons button:nth-of-type(2) {
+  background-color: #b71c1c; /* rojo fascista */
+}
+
+.buttons button:nth-of-type(2):hover {
+  background-color: #8b1212;
+}
+
+.buttons button:nth-of-type(3) {
+  background-color: #4caf50; /* verde empezar */
+}
+
+.buttons button:nth-of-type(3):hover {
+  background-color: #3b8b3b;
+}
+
+/* Lista de jugadores (botones) */
+.player-button {
+  display: block;
+  margin: 8px 0;
+  padding: 12px 18px;
+  background-color: #111;
+  border: 2px solid #444;
+  color: #f0f0f0;
+  width: fit-content;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 10px solid #ffcc66;
+  user-select: none;
+}
+
+.player-button:hover {
+  background-color: #222;
+  border-left-color: #337ab7;
+}
+
+/* Resultados roles */
+#rolesResult {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+  max-width: 500px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* BOTÓN IR AL TABLERO */
+.btn-left {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #007bff; /* azul fuerte */
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  user-select: none;
+}
+
+.btn-left:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 18px rgba(0, 86, 179, 0.9);
+}
+
+/* BOTÓN ROLES (con clase btn para estilo global) */
+.btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ff4444;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(255, 68, 68, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  user-select: none;
+}
+
+.btn:hover {
+  background-color: #cc0000;
+  box-shadow: 0 6px 18px rgba(204, 0, 0, 0.9);
+}
+
+/* BOTÓN Volver al menú */
+#backToMenuBtn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  padding: 8px 14px;
+  background-color: #222;
+  color: white;
+  text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  border-radius: 6px;
+  font-size: 16px;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+#backToMenuBtn:hover {
+  background-color: #444;
+}
+
+/* TABLEROS DE LEYES */
 .tableros {
   display: flex;
   justify-content: center;
@@ -55,6 +334,7 @@ h1 {
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
+/* Cartas */
 .carta {
   padding: 10px 20px;
   border-radius: 5px;
@@ -80,6 +360,57 @@ h1 {
   box-shadow: 0 0 8px #ff4444bb;
 }
 
+/* Leyes */
+.leyes {
+  padding: 10px;
+  margin: 20px 0;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.leyes.liberal h3 {
+  color: #000000;
+  text-shadow: 0 0 5px #3399ffcc;
+}
+
+.leyes.facha h3 {
+  color: #000000;
+  text-shadow: 0 0 5px #ff4444cc;
+}
+
+/* Casillas */
+.casillas {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.casilla {
+  width: 44px;
+  height: 68px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  box-shadow: inset 0 0 6px #00000030;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+/* Colores casilla activada */
+.casilla.liberal {
+  background-color: #007BFF;
+  box-shadow: 0 0 10px 3px #3399ffaa;
+  border-color: #3399ff;
+}
+
+.casilla.facha {
+  background-color: #FF3333;
+  box-shadow: 0 0 10px 3px #ff4444aa;
+  border-color: #ff4444;
+}
+
+/* Botones */
 button {
   margin-top: 10px;
   padding: 12px 20px;
@@ -97,7 +428,27 @@ button:hover {
   background-color: #3b8b3b;
 }
 
-/* 🔹 Modal */
+/* Botón reiniciar especial */
+#botonReiniciar {
+  margin-top: 40px;
+  padding: 14px 36px;
+  font-size: 18px;
+  font-weight: 700;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px #2a7a2aaa;
+  transition: background-color 0.25s ease;
+  align-self: center;
+}
+
+#botonReiniciar:hover {
+  background-color: #3b8b3b;
+}
+
+/* Modal común */
 .modal {
   display: none;
   position: fixed;
@@ -112,26 +463,29 @@ button:hover {
 }
 
 .modal-content {
-  background: #2a2a3d;
+  background: #1c1c1c;
+  border: 3px solid #ffcc66;
+  border-radius: 10px;
   padding: 30px 40px;
-  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 0 30px #000000aa;
+  color: #fff;
   max-width: 400px;
   width: 90%;
+  box-shadow: 0 0 30px #000000aa;
 }
 
-.modal h2 {
+.modal-content h2 {
+  color: #ffcc66;
+  font-size: 28px;
   margin-bottom: 20px;
 }
 
-.cartas-modal {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin: 20px 0;
+.modal-content p {
+  font-size: 22px;
+  font-weight: bold;
 }
 
+.close-button,
 .close-btn {
   margin-top: 10px;
   padding: 8px 15px;
@@ -139,7 +493,9 @@ button:hover {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: 600;
   transition: background-color 0.3s ease;
+  color: white;
 }
 
 .close-btn:disabled {
@@ -147,56 +503,12 @@ button:hover {
   cursor: not-allowed;
 }
 
+.close-button:hover,
 .close-btn:hover:not(:disabled) {
   background-color: #666;
 }
 
-.leyes {
-  padding: 10px;
-  margin: 20px 0;
-  text-align: center;
-}
-
-.leyes.liberal h3 {
-  color: #000000;
-  text-shadow: 0 0 5px #3399ffcc;
-}
-
-.leyes.facha h3 {
-  color: #000000;
-  text-shadow: 0 0 5px #ff4444cc;
-}
-
-.casillas {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.casilla {
-  width: 44px;
-  height: 68px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  background-color: #f0f0f0;
-  box-shadow: inset 0 0 6px #00000030;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Colores al ser activadas */
-.casilla.liberal {
-  background-color: #007BFF;
-  box-shadow: 0 0 10px 3px #3399ffaa;
-  border-color: #3399ff;
-}
-
-.casilla.facha {
-  background-color: #FF3333;
-  box-shadow: 0 0 10px 3px #ff4444aa;
-  border-color: #ff4444;
-}
-
-/* Modal Confirmación Reinicio */
+/* Modal confirmación reinicio */
 #modalConfirmarReinicio .modal-content button {
   margin: 10px;
   padding: 8px 15px;
@@ -220,66 +532,129 @@ button:hover {
   box-shadow: 0 0 8px #555555cc;
 }
 
-/* Botón reiniciar abajo con margen grande */
-#botonReiniciar {
+/* Footer */
+.footer {
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
   margin-top: 40px;
-  padding: 14px 36px;
-  font-size: 18px;
-  font-weight: 700;
-  background: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 6px 20px #2a7a2aaa;
-  transition: background-color 0.25s ease;
+  width: 100%;
+  max-width: 900px;
   align-self: center;
-  /* Fija el botón abajo si quieres: */
-  /* position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); */
 }
 
-#botonReiniciar:hover {
-  background-color: #3b8b3b;
+.footer-content p {
+  margin: 0 0 10px 0;
+  font-weight: bold;
 }
 
-.btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #ff4444;
-  /* rojo fuerte */
-  color: white;
-  padding: 10px 18px;
-  border-radius: 8px;
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0;
+}
+
+.footer-links li a {
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  box-shadow: 0 4px 12px rgba(255, 68, 68, 0.7);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1000;
-  user-select: none;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
 }
 
-.btn:hover {
-  background-color: #cc0000;
-  box-shadow: 0 6px 18px rgba(204, 0, 0, 0.9);
+.footer-links li a:hover {
+  color: #0af;
 }
 
-#backToMenuBtn {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  padding: 8px 14px;
-  background-color: #222;
-  color: white;
-  text-decoration: none;
-  font-family: 'Bebas Neue', sans-serif;
+#modalSeleccionDropdown {
   border-radius: 6px;
-  font-size: 16px;
-  z-index: 1000;
-  transition: background-color 0.3s ease;
+  border: none;
+  background-color: #333;
+  color: white;
 }
 
-#backToMenuBtn:hover {
-  background-color: #444;
+#modalSeleccionConfirmarBtn {
+  background-color: #007acc;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#modalSeleccionConfirmarBtn:hover {
+  background-color: #005f99;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buttons button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  #players,
+  #rolesResult {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  input[type="text"] {
+    max-width: 100%;
+  }
+
+  button {
+    width: 100%;
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .modal-content p {
+    font-size: 1.3rem;
+  }
+
+  .main-title {
+    max-width: 90%;
+    word-break: break-word;
+    text-align: center;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+  }
+
+  .language-selector {
+    position: static !important;
+    transform: none !important;
+    margin-top: 10px;
+    z-index: auto;
+  }
 }

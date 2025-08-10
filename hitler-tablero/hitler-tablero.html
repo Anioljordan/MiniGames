@@ -2,80 +2,166 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="hitler-tablero.css">
-  <title>Hitler Game - Reparto de Cartas</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hitler Game - Roles y Tablero</title>
 
+  <!-- Estilos de Roles -->
+  <link rel="stylesheet" href="hitler.css" />
+  <!-- Estilos del Tablero -->
+  <link rel="stylesheet" href="hitler-tablero.css" />
+
+  <!-- Fuentes y librerías externas -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
 </head>
 
 <body>
-  <a href="../index.html" id="backToMenuBtn">⬅ </a>
-  <h1>Hitler Game - Reparto de Cartas</h1>
 
-  <!-- Tablero de leyes liberales -->
-  <div class="leyes liberal">
-    <h3>Liberales</h3>
-    <div class="casillas">
-      <div class="casilla"></div>
-      <div class="casilla"></div>
-      <div class="casilla"></div>
-      <div class="casilla"></div>
-      <div class="casilla"></div>
+  <!-- ====== HEADER DE ROLES ====== -->
+  <header class="header">
+    <a href="../index.html" id="backToMenuBtn">⬅</a>
+    <h1 class="main-title">Hitler Game</h1>
+  </header>
+
+  <main>
+
+    <!-- ====== SECCIÓN DE ROLES ====== -->
+    <section id="roles-section">
+      <h2>Jugadores</h2>
+      <div class="form-container">
+        <div id="players">
+          <input type="text" placeholder="Player 1" />
+        </div>
+<div class="buttons">
+  <button id="startResetBtn" onclick="handleStartOrReset()">Empezar</button>
+  <button onclick="addPlayer()">Añadir jugador</button>
+  <button onclick="removePlayer()">Eliminar jugador</button>
+</div>
+
+      </div>
+      <h3>Haz clic en tu nombre para ver tu rol</h3>
+      <div id="rolesResult"></div>
+
+      <!-- Modal de roles -->
+      <div id="roleModal" class="modal">
+        <div class="modal-content">
+          <h2 id="modalPlayerName"></h2>
+          <p id="modalPlayerRole"></p>
+          <button class="close-button" onclick="closeModal()">Cerrar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECCIÓN DEL TABLERO ====== -->
+    <section id="tablero-section">
+      <h1>Hitler Game - Reparto de Cartas</h1>
+
+      <!-- Tablero de leyes liberales -->
+      <div class="leyes liberal">
+        <h3>Liberales</h3>
+        <div class="casillas">
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+        </div>
+      </div>
+
+      <!-- Tablero de leyes fachas -->
+      <div class="leyes facha">
+        <h3>Fachas</h3>
+        <div class="casillas">
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+        </div>
+      </div>
+
+      <div>
+        <button onclick="robarCartas()">Robar 3 Cartas (Presidente)</button>
+      </div>
+
+      <!-- Modal Presidente -->
+      <div class="modal" id="modalPresidente">
+        <div class="modal-content">
+          <h2>Presidente: escoge 2 cartas</h2>
+          <div class="cartas-modal" id="cartasPresidente"></div>
+          <button class="close-btn" onclick="cerrarModalPresidente()" id="btnCerrarPresidente" disabled>Pasar al Canciller</button>
+        </div>
+      </div>
+
+      <!-- Modal Canciller -->
+      <div class="modal" id="modalCanciller">
+        <div class="modal-content">
+          <h2>Canciller: escoge 1 carta</h2>
+          <div class="cartas-modal" id="cartasCanciller"></div>
+        </div>
+      </div>
+
+
+      <!-- Modal confirmación reinicio -->
+      <div class="modal" id="modalConfirmarReinicio" style="display:none; justify-content:center; align-items:center;">
+        <div class="modal-content">
+          <h2>¿Estás seguro que quieres reiniciar el juego?</h2>
+          <button onclick="confirmarReinicio()">Sí, reiniciar</button>
+          <button onclick="cancelarReinicio()">Cancelar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>Creado por Aniol Jordán</p>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/aniol-jord%C3%A1n-l%C3%B3pez-35854123a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/aniol.dev" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://github.com/Anioljordan" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+      </ul>
     </div>
+  </footer>
+
+<!-- Modal para seleccionar jugador para matar -->
+<div id="modalMatarJugador" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>Elige un jugador para eliminar</h3>
+    <select id="selectMatarJugador"></select>
+    <button id="btnConfirmarMatar">Confirmar</button>
+    <button onclick="cerrarModal('modalMatarJugador')">Cancelar</button>
   </div>
+</div>
 
-  <!-- Tablero de leyes fachas -->
-  <div class="leyes facha">
-    <h3>Fachas</h3>
-    <div class="casillas">
-      <div class="casilla"></div>
-      <div class="casilla"></div>
-      <div class="casilla"></div>
-      <div class="casilla"></div>
-      <div class="casilla"></div>
-      <div class="casilla"></div>
-    </div>
+<!-- Modal para seleccionar jugador para ver rol -->
+<div id="modalVerRol" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>Elige un jugador para ver su rol</h3>
+    <select id="selectVerRol"></select>
+    <button id="btnConfirmarVerRol">Confirmar</button>
+    <button onclick="cerrarModal('modalVerRol')">Cancelar</button>
   </div>
+</div>
 
-
-  <div>
-    <button onclick="robarCartas()">Robar 3 Cartas (Presidente)</button>
+<!-- Modal para seleccionar siguiente presidente -->
+<div id="modalSiguientePresidente" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>Elige el siguiente presidente</h3>
+    <select id="selectSiguientePresidente"></select>
+    <button id="btnConfirmarPresidente">Confirmar</button>
+    <button onclick="cerrarModal('modalSiguientePresidente')">Cancelar</button>
   </div>
-
-  <!-- 🔹 Modal para PRESIDENTE -->
-  <div class="modal" id="modalPresidente">
-    <div class="modal-content">
-      <h2>Presidente: escoge 2 cartas</h2>
-      <div class="cartas-modal" id="cartasPresidente"></div>
-      <button class="close-btn" onclick="cerrarModalPresidente()" id="btnCerrarPresidente" disabled>Pasar al
-        Canciller</button>
-    </div>
-  </div>
-
-  <!-- 🔹 Modal para CANCILLER -->
-  <div class="modal" id="modalCanciller">
-    <div class="modal-content">
-      <h2>Canciller: escoge 1 carta</h2>
-      <div class="cartas-modal" id="cartasCanciller"></div>
-    </div>
-  </div>
-
-  <a href="/Hitler/hitler/hitler.html" class="btn">Roles</a>
+</div>
 
 
-  <button id="botonReiniciar" onclick="abrirModalReinicio()">Reiniciar Juego</button>
-
-
-  <!-- Modal de confirmación para reiniciar -->
-  <div class="modal" id="modalConfirmarReinicio" style="display:none; justify-content:center; align-items:center;">
-    <div class="modal-content">
-      <h2>¿Estás seguro que quieres reiniciar el juego?</h2>
-      <button onclick="confirmarReinicio()">Sí, reiniciar</button>
-      <button onclick="cancelarReinicio()">Cancelar</button>
-    </div>
-  </div>
-
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 
