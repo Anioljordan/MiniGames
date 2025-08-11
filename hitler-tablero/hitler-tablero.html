@@ -23,8 +23,9 @@
 
   <!-- ====== HEADER DE ROLES ====== -->
   <header class="header">
-    <a href="../index.html" id="backToMenuBtn">⬅</a>
+    <a href="../index.html" id="backToMenuBtn">menu</a>
     <h1 class="main-title">Hitler Game</h1>
+    <button id="btnNormas" style="position:absolute; top:10px; right:10px;">📜 Normas</button>
   </header>
 
   <main>
@@ -166,7 +167,22 @@
     <div id="customModalButtons"></div>
   </div>
 </div>
-
+<div id="modalNormas" class="modal">
+  <div class="modal-content">
+    <h2>Normas del Juego</h2>
+    <p>
+      1️⃣ El objetivo de los liberales es aprobar 5 leyes liberales o eliminar a Hitler.<br>
+      2️⃣ El objetivo de los fascistas es aprobar 6 leyes fascistas o elegir a Hitler como canciller después de la tercera ley fascista.<br>
+      3️⃣ Los jugadores solo pueden ver su rol una vez al inicio.<br>
+      4️⃣ Cada turno, el presidente roba 3 cartas, descarta 1 y pasa 2 al canciller.<br>
+      5️⃣ El canciller descarta 1 carta y aprueba la ley restante.<br>
+      6️⃣ Atencion con las normas que van saliendo al poner leyes fascistas.<br>
+      7️⃣ No reveles tu rol ni las cartas que recibiste (puedes mentir).<br>
+      8️⃣ Diviértete y no te lo tomes demasiado en serio. 😉
+    </p>
+    <button onclick="cerrarModal('modalNormas')">Cerrar</button>
+  </div>
+</div>
 
   <!-- Scripts -->
   <script src="script.js"></script>

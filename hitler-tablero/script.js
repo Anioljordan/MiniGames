@@ -5,6 +5,8 @@ const CARTAS_LIBERALES_INICIALES = 6;
 let mazo = [];
 let descartes = [];
 
+let rolesVistos = JSON.parse(localStorage.getItem('rolesVistos') || '[]'); // Guarda jugadores que ya vieron su rol
+
 let cartasJugador1 = [];
 let seleccionJugador1 = [];
 
@@ -452,6 +454,8 @@ function resetGame() {
   assignedRoles = [];
   localStorage.removeItem('assignedRoles');
   localStorage.removeItem('savedPlayers');
+  localStorage.removeItem('rolesVistos'); // <-- limpiar lista
+  rolesVistos = []; // <-- vaciar array
 
   // Limpiar UI
   const playersDiv = document.getElementById("players");
@@ -511,9 +515,19 @@ function renderPlayers() {
 }
 
 function showModal(name, role) {
+  // Si ya vio su rol, no dejar verlo otra vez
+  if (rolesVistos.includes(name)) {
+    customAlert(`${name} ya ha visto su rol y no puede volver a verlo.`);
+    return;
+  }
+
   document.getElementById("modalPlayerName").textContent = name;
   document.getElementById("modalPlayerRole").textContent = 'Tu rol es: ' + role;
   document.getElementById("roleModal").style.display = "flex";
+
+  // Guardar que ya lo vio
+  rolesVistos.push(name);
+  localStorage.setItem('rolesVistos', JSON.stringify(rolesVistos));
 }
 
 function closeModal() {
@@ -538,6 +552,10 @@ function reiniciarJuego() {
   document.getElementById("modalPresidente").style.display = 'none';
   document.getElementById("modalCanciller").style.display = 'none';
   localStorage.removeItem('hitlerGameEstado');
+
+  // limpiar roles vistos
+  localStorage.removeItem('rolesVistos');
+  rolesVistos = [];
 }
 
 // ================== ONLOAD UNIFICADO ==================
@@ -618,4 +636,13 @@ function customConfirm(message) {
 
     modal.style.display = "flex";
   });
+}
+// Abrir modal de Normas
+document.getElementById("btnNormas").addEventListener("click", () => {
+    document.getElementById("modalNormas").style.display = "flex";
+});
+
+// Función genérica para cerrar modales
+function cerrarModal(id) {
+    document.getElementById(id).style.display = "none";
 }
