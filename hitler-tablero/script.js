@@ -170,7 +170,7 @@ function mostrarModalCanciller() {
 }
 
 // Al elegir carta final, se aplica y se ejecutan acciones del tablero fascista si es ley facha
-function elegirCartaFinal(cartaElegida) {
+async function elegirCartaFinal(cartaElegida) {
   document.getElementById("modalCanciller").style.display = 'none';
 
   const cartaNoElegida = seleccionJugador1.find(carta => carta !== cartaElegida);
@@ -191,13 +191,13 @@ function elegirCartaFinal(cartaElegida) {
   if (cartaElegida === 'Facha') {
     fascistLaws++;
     if (fascistLaws >= 6) {
-      alert('¡Victoria de los Fachas!');
+      await customAlert('¡Victoria de los Fachas!');
     } else {
       accionTableroFascista(fascistLaws);
     }
   } else {
     liberalLaws++;
-    if (liberalLaws >= 5) alert('¡Victoria de los Liberales!');
+    if (liberalLaws >= 5) await customAlert('¡Victoria de los Liberales!');
   }
 
   cartasJugador1 = [];
@@ -263,18 +263,17 @@ function accionTableroFascista(leyActual) {
 }
 
 // Muestra las cartas superiores del mazo al presidente
-function mostrarCartasMazoTop(cantidad) {
+async function mostrarCartasMazoTop(cantidad) {
   const cartasTop = mazo.slice(-cantidad).reverse();
-  alert('Las cartas superiores del mazo son: ' + cartasTop.join(', '));
+  await customAlert('Las cartas superiores del mazo son: ' + cartasTop.join(', '));
 }
 
 // Solicita elegir un jugador para eliminar
-// Solicita elegir un jugador para eliminar
-function solicitarMatarJugador() {
-  if (assignedRoles.length <= 5) {
-    alert('No se puede eliminar jugadores si quedan menos de 5.');
-    return;
-  }
+async function solicitarMatarJugador() {
+  // if (assignedRoles.length <= 5) {
+  //   await customAlert('No se puede eliminar jugadores si quedan menos de 5.');
+  //   return;
+  // }
 
   // Poner opciones en el select
   const select = document.getElementById('selectMatarJugador');
@@ -291,7 +290,7 @@ function solicitarMatarJugador() {
 }
 
 // Confirmar matar jugador
-document.getElementById('btnConfirmarMatar').onclick = () => {
+document.getElementById('btnConfirmarMatar').onclick = async () => {
   const select = document.getElementById('selectMatarJugador');
   const nombre = select.value;
 
@@ -299,12 +298,12 @@ document.getElementById('btnConfirmarMatar').onclick = () => {
 
   const index = assignedRoles.findIndex(p => p.name === nombre);
   if (index === -1) {
-    alert('Jugador no encontrado.');
+    await customAlert('Jugador no encontrado.');
     return;
   }
 
   assignedRoles.splice(index, 1);
-  alert(`Jugador "${nombre}" eliminado.`);
+  await customAlert(`Jugador "${nombre}" eliminado.`);
   renderPlayers();
   guardarEstadoJugadores();
 
@@ -325,7 +324,7 @@ function solicitarVerCartaJugador() {
   document.getElementById('modalVerRol').style.display = 'flex';
 }
 
-document.getElementById('btnConfirmarVerRol').onclick = () => {
+document.getElementById('btnConfirmarVerRol').onclick = async () => {
   const select = document.getElementById('selectVerRol');
   const nombre = select.value;
 
@@ -333,11 +332,11 @@ document.getElementById('btnConfirmarVerRol').onclick = () => {
 
   const jugador = assignedRoles.find(p => p.name === nombre);
   if (!jugador) {
-    alert('Jugador no encontrado.');
+    await customAlert('Jugador no encontrado.');
     return;
   }
 
-  alert(`El rol de ${jugador.name} es: ${jugador.role}`);
+  await customAlert(`El rol de ${jugador.name} es: ${jugador.role}`);
   cerrarModal('modalVerRol');
 };
 
@@ -355,7 +354,7 @@ function solicitarEscogerSiguientePresidente() {
   document.getElementById('modalSiguientePresidente').style.display = 'flex';
 }
 
-document.getElementById('btnConfirmarPresidente').onclick = () => {
+document.getElementById('btnConfirmarPresidente').onclick = async () => {
   const select = document.getElementById('selectSiguientePresidente');
   const nombre = select.value;
 
@@ -363,12 +362,12 @@ document.getElementById('btnConfirmarPresidente').onclick = () => {
 
   const jugador = assignedRoles.find(p => p.name === nombre);
   if (!jugador) {
-    alert('Jugador no encontrado.');
+    await customAlert('Jugador no encontrado.');
     return;
   }
 
   siguientePresidente = jugador.name;
-  alert(`Has escogido a ${jugador.name} como próximo presidente.`);
+  await customAlert(`Has escogido a ${jugador.name} como próximo presidente.`);
   guardarEstadoMazo();
   cerrarModal('modalSiguientePresidente');
 };
@@ -384,14 +383,14 @@ function guardarEstadoJugadores() {
 
 // ================== PARTE 2 - JUGADORES Y ROLES ==================
 
-function addPlayer() {
+async function addPlayer() {
   const playersDiv = document.getElementById("players");
   const count = playersDiv.getElementsByTagName("input").length;
 
   if (gameStarted) return; // No añadir si el juego empezó
 
   if (count >= maxPlayers) {
-    alert('Máximo número de jugadores alcanzado.');
+    await customAlert('Máximo número de jugadores alcanzado.');
     return;
   }
 
@@ -419,8 +418,8 @@ function handleStartOrReset() {
   }
 }
 
-function startGame() {
-  if (!confirm('¿Seguro que quieres empezar la partida? Los roles se asignarán y no podrás cambiar los nombres.')) return;
+async function startGame() {
+  if (!(await customConfirm('¿Seguro que quieres empezar la partida? Los roles se asignarán y no podrás cambiar los nombres.'))) return;
 
   const inputs = document.querySelectorAll("#players input");
   const players = Array.from(inputs)
@@ -428,7 +427,7 @@ function startGame() {
     .slice(0, maxPlayers);
 
   if (players.length < 5) {
-    alert('Se necesitan al menos 5 jugadores para empezar.');
+    await customAlert('Se necesitan al menos 5 jugadores para empezar.');
     return;
   }
 
@@ -578,3 +577,45 @@ window.onload = () => {
 
   updateStartResetButton();
 };
+function customAlert(message) {
+  return new Promise(resolve => {
+    const modal = document.getElementById("customModal");
+    const text = document.getElementById("customModalText");
+    const buttons = document.getElementById("customModalButtons");
+
+    text.textContent = message;
+    buttons.innerHTML = `<button id="okBtn">OK</button>`;
+
+    document.getElementById("okBtn").onclick = () => {
+      modal.style.display = "none";
+      resolve();
+    };
+
+    modal.style.display = "flex";
+  });
+}
+
+function customConfirm(message) {
+  return new Promise(resolve => {
+    const modal = document.getElementById("customModal");
+    const text = document.getElementById("customModalText");
+    const buttons = document.getElementById("customModalButtons");
+
+    text.textContent = message;
+    buttons.innerHTML = `
+      <button id="yesBtn">Sí</button>
+      <button id="noBtn">No</button>
+    `;
+
+    document.getElementById("yesBtn").onclick = () => {
+      modal.style.display = "none";
+      resolve(true);
+    };
+    document.getElementById("noBtn").onclick = () => {
+      modal.style.display = "none";
+      resolve(false);
+    };
+
+    modal.style.display = "flex";
+  });
+}
