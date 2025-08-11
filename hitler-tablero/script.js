@@ -305,7 +305,7 @@ document.getElementById('btnConfirmarMatar').onclick = async () => {
   }
 
   assignedRoles.splice(index, 1);
-  await customAlert(`Jugador "${nombre}" eliminado.`);
+  await customAlert(`Jugador "${jugador.name}" (${jugador.role}) eliminado.`);
   renderPlayers();
   guardarEstadoJugadores();
 
