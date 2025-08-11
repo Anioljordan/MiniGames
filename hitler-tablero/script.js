@@ -304,7 +304,9 @@ document.getElementById('btnConfirmarMatar').onclick = async () => {
     return;
   }
 
+  const jugador = assignedRoles[index]; // Guardamos el jugador antes de eliminarlo
   assignedRoles.splice(index, 1);
+
   await customAlert(`Jugador "${jugador.name}" (${jugador.role}) eliminado.`);
   renderPlayers();
   guardarEstadoJugadores();
