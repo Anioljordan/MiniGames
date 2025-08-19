@@ -169,37 +169,50 @@ input {
 
 /* 📱 Responsive en móviles */
 @media (max-width: 600px) {
+    body {
+        font-size: 16px;
+        /* sube el tamaño base */
+    }
+
     h1 {
-        font-size: 2.2rem;
-        margin-top: 60px;
-        letter-spacing: 2px;
+        font-size: 8vw;
+        /* se adapta al ancho de pantalla */
+        margin-top: 40px;
+        letter-spacing: 1px;
     }
 
     h2 {
-        font-size: 1.4rem;
+        font-size: 5vw;
     }
 
     input {
         width: 100%;
         max-width: 100%;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        padding: 14px;
     }
 
     .btn {
         width: 100%;
         max-width: 100%;
-        font-size: 1rem;
-        padding: 12px;
+        font-size: 1.2rem;
+        padding: 14px;
     }
 
     #setup,
     #game,
     #result {
-        padding: 20px;
+        padding: 16px;
         width: 95%;
     }
 
     #playerList {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    .footer {
+        font-size: 1rem;
+        /* sube también el footer */
+        padding: 16px;
     }
 }
