@@ -14,6 +14,12 @@ body {
     text-align: center;
 }
 
+main {
+
+    flex: 1;
+
+}
+
 h1 {
     font-size: 3.5rem;
     color: #4fc3f7;
@@ -120,6 +126,45 @@ input {
 
 #backToMenuBtn:hover {
     background-color: #444;
+}
+
+.footer {
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    width: 100%;
+    align-self: center;
+}
+
+.footer-content p {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0;
+}
+
+.footer-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #0af;
 }
 
 /* 📱 Responsive en móviles */
