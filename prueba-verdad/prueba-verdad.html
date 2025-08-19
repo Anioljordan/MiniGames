@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" />
+    <title>Prueba o Verdad</title>
+
+
+</head>
+
+<body>
+    <a href="../index.html" id="backToMenuBtn">menu</a>
+    <h1> Juego Prueba o Verdad </h1>
+
+    <!-- Pantalla de introducción de jugadores -->
+    <div id="setup">
+        <h2>Introduce los jugadores</h2>
+        <input id="playerName" type="text" placeholder="Nombre del jugador">
+        <button class="btn" onclick="addPlayer()">➕ Añadir jugador</button>
+        <div id="playerList"></div>
+        <br>
+        <button class="btn" onclick="startGame()">✅ Empezar juego</button>
+    </div>
+
+    <!-- Pantalla del juego -->
+    <div id="game" class="hidden">
+        <h2 id="turnInfo"></h2>
+        <p><strong>Siguiente:</strong> <span id="nextPlayer"></span></p>
+        <button class="btn" onclick="choose('Verdad')">🙊 Verdad</button>
+        <button class="btn" onclick="choose('Prueba')">🎯 Prueba</button>
+        <br><br>
+        <button class="btn danger" onclick="resetGame()">🔄 Reiniciar partida</button>
+    </div>
+
+    <!-- Resultado de la elección -->
+    <div id="result" class="hidden">
+        <h2 id="choiceText"></h2>
+        <p id="challengeText"></p>
+        <button class="btn" onclick="nextTurn()">➡️ Siguiente turno</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

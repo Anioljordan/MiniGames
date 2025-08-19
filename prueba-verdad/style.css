@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    background: linear-gradient(to bottom, #0a2342, #1b3a6b);
+    color: #e0f0ff;
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: #4fc3f7;
+    text-shadow: 1px 1px 4px rgba(0, 105, 160, 0.8);
+    letter-spacing: 4px;
+    margin-top: 80px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #81d4fa;
+    text-shadow: 0 0 6px rgba(79, 195, 247, 0.7);
+}
+
+/* Inputs */
+input {
+    padding: 12px 18px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    width: 250px;
+    max-width: 80%;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Botones */
+.btn {
+    background-color: #0288d1;
+    border: none;
+    padding: 14px 28px;
+    margin: 10px;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 10px rgba(2, 136, 209, 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #015a8e;
+    box-shadow: 0 6px 14px rgba(1, 90, 142, 0.9);
+}
+
+.btn.danger {
+    background-color: #d32f2f;
+    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.6);
+}
+
+.btn.danger:hover {
+    background-color: #a62828;
+    box-shadow: 0 6px 14px rgba(166, 40, 40, 0.9);
+}
+
+/* Lista de jugadores */
+#playerList {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #e1f5fe;
+    text-shadow: 0 0 6px rgba(79, 195, 247, 0.6);
+}
+
+/* Contenedor principal */
+#setup,
+#game,
+#result {
+    background: rgba(79, 195, 247, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
+    padding: 30px 40px;
+    margin-top: 20px;
+    max-width: 600px;
+    width: 90%;
+}
+
+/* Oculto */
+.hidden {
+    display: none;
+}
+
+/* Botón volver al menú */
+#backToMenuBtn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    padding: 8px 14px;
+    background-color: #222;
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    border-radius: 6px;
+    font-size: 16px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+#backToMenuBtn:hover {
+    background-color: #444;
+}
+
+/* 📱 Responsive en móviles */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem;
+        margin-top: 60px;
+        letter-spacing: 2px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    input {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    #setup,
+    #game,
+    #result {
+        padding: 20px;
+        width: 95%;
+    }
+
+    #playerList {
+        font-size: 1.2rem;
+    }
+}

@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-    padding: 20px;
+  padding: 20px;
   gap: 30px;
   flex: 1;
   align-items: center;
@@ -174,7 +174,8 @@ input[type="text"]:focus {
 }
 
 .buttons button:nth-of-type(1) {
-  background-color: #337ab7; /* azul liberal */
+  background-color: #337ab7;
+  /* azul liberal */
 }
 
 .buttons button:nth-of-type(1):hover {
@@ -182,7 +183,8 @@ input[type="text"]:focus {
 }
 
 .buttons button:nth-of-type(2) {
-  background-color: #b71c1c; /* rojo fascista */
+  background-color: #b71c1c;
+  /* rojo fascista */
 }
 
 .buttons button:nth-of-type(2):hover {
@@ -190,7 +192,8 @@ input[type="text"]:focus {
 }
 
 .buttons button:nth-of-type(3) {
-  background-color: #4caf50; /* verde empezar */
+  background-color: #4caf50;
+  /* verde empezar */
 }
 
 .buttons button:nth-of-type(3):hover {
@@ -233,7 +236,8 @@ input[type="text"]:focus {
   position: fixed;
   top: 20px;
   left: 20px;
-  background-color: #007bff; /* azul fuerte */
+  background-color: #007bff;
+  /* azul fuerte */
   color: white;
   padding: 10px 18px;
   border-radius: 8px;
@@ -379,11 +383,13 @@ input[type="text"]:focus {
   color: #000000;
   text-shadow: 0 0 5px #ff4444cc;
 }
+
 .leyes.facha {
   background: linear-gradient(to right, #cc0000 50%, #680000 50%);
   border-radius: 12px;
   padding: 10px;
 }
+
 /* Casillas */
 .casillas {
   display: flex;
@@ -457,11 +463,12 @@ button:hover {
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
   z-index: 9999;
 }
+
 .modal-content {
   background: #222;
   padding: 20px;
@@ -470,6 +477,7 @@ button:hover {
   min-width: 250px;
   text-align: center;
 }
+
 .modal-content button {
   background: #444;
   border: none;
@@ -479,6 +487,7 @@ button:hover {
   border-radius: 5px;
   color: white;
 }
+
 .modal-content button:hover {
   background: #666;
 }
@@ -606,6 +615,11 @@ button:hover {
 
 /* Responsive */
 @media (max-width: 600px) {
+  #btnNormas {
+    position: static;
+    margin-top: 10px;
+    align-self: center;
+  }
 
   .buttons {
     flex-direction: column;
