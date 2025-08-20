@@ -13,10 +13,7 @@
 
   <!-- Fuentes y librerías externas -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
@@ -25,7 +22,8 @@
   <header class="header">
     <a href="../index.html" id="backToMenuBtn">menu</a>
     <h1 class="main-title">Hitler Game</h1>
-    <button id="btnNormas" style="position:absolute; top:10px; right:10px;">📜 Normas</button>
+    <button id="btnNormas">📜 Normas</button>
+
   </header>
 
   <main>
@@ -37,11 +35,11 @@
         <div id="players">
           <input type="text" placeholder="Player 1" />
         </div>
-<div class="buttons">
-  <button id="startResetBtn" onclick="handleStartOrReset()">Empezar</button>
-  <button onclick="addPlayer()">Añadir jugador</button>
-  <button onclick="removePlayer()">Eliminar jugador</button>
-</div>
+        <div class="buttons">
+          <button id="startResetBtn" onclick="handleStartOrReset()">Empezar</button>
+          <button onclick="addPlayer()">Añadir jugador</button>
+          <button onclick="removePlayer()">Eliminar jugador</button>
+        </div>
 
       </div>
       <h3>Haz clic en tu nombre para ver tu rol</h3>
@@ -95,7 +93,8 @@
         <div class="modal-content">
           <h2>Presidente: escoge 2 cartas</h2>
           <div class="cartas-modal" id="cartasPresidente"></div>
-          <button class="close-btn" onclick="cerrarModalPresidente()" id="btnCerrarPresidente" disabled>Pasar al Canciller</button>
+          <button class="close-btn" onclick="cerrarModalPresidente()" id="btnCerrarPresidente" disabled>Pasar al
+            Canciller</button>
         </div>
       </div>
 
@@ -124,65 +123,68 @@
     <div class="footer-content">
       <p>Creado por Aniol Jordán</p>
       <ul class="footer-links">
-        <li><a href="https://www.linkedin.com/in/aniol-jord%C3%A1n-l%C3%B3pez-35854123a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-        <li><a href="https://www.instagram.com/aniol.dev" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/aniol-jord%C3%A1n-l%C3%B3pez-35854123a/" target="_blank"><i
+              class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/aniol.dev" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        </li>
         <li><a href="https://github.com/Anioljordan" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
       </ul>
     </div>
   </footer>
 
-<!-- Modal para seleccionar jugador para matar -->
-<div id="modalMatarJugador" class="modal" style="display:none;">
-  <div class="modal-content">
-    <h3>Elige un jugador para eliminar</h3>
-    <select id="selectMatarJugador"></select>
-    <button id="btnConfirmarMatar">Confirmar</button>
-    <button onclick="cerrarModal('modalMatarJugador')">Cancelar</button>
+  <!-- Modal para seleccionar jugador para matar -->
+  <div id="modalMatarJugador" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Elige un jugador para eliminar</h3>
+      <select id="selectMatarJugador"></select>
+      <button id="btnConfirmarMatar">Confirmar</button>
+      <button onclick="cerrarModal('modalMatarJugador')">Cancelar</button>
+    </div>
   </div>
-</div>
 
-<!-- Modal para seleccionar jugador para ver rol -->
-<div id="modalVerRol" class="modal" style="display:none;">
-  <div class="modal-content">
-    <h3>Elige un jugador para ver su rol</h3>
-    <select id="selectVerRol"></select>
-    <button id="btnConfirmarVerRol">Confirmar</button>
-    <button onclick="cerrarModal('modalVerRol')">Cancelar</button>
+  <!-- Modal para seleccionar jugador para ver rol -->
+  <div id="modalVerRol" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Elige un jugador para ver su rol</h3>
+      <select id="selectVerRol"></select>
+      <button id="btnConfirmarVerRol">Confirmar</button>
+      <button onclick="cerrarModal('modalVerRol')">Cancelar</button>
+    </div>
   </div>
-</div>
 
-<!-- Modal para seleccionar siguiente presidente -->
-<div id="modalSiguientePresidente" class="modal" style="display:none;">
-  <div class="modal-content">
-    <h3>Elige el siguiente presidente</h3>
-    <select id="selectSiguientePresidente"></select>
-    <button id="btnConfirmarPresidente">Confirmar</button>
-    <button onclick="cerrarModal('modalSiguientePresidente')">Cancelar</button>
+  <!-- Modal para seleccionar siguiente presidente -->
+  <div id="modalSiguientePresidente" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Elige el siguiente presidente</h3>
+      <select id="selectSiguientePresidente"></select>
+      <button id="btnConfirmarPresidente">Confirmar</button>
+      <button onclick="cerrarModal('modalSiguientePresidente')">Cancelar</button>
+    </div>
   </div>
-</div>
-<!-- Modal genérico -->
-<div id="customModal" class="modal">
-  <div class="modal-content">
-    <p id="customModalText"></p>
-    <div id="customModalButtons"></div>
+  <!-- Modal genérico -->
+  <div id="customModal" class="modal">
+    <div class="modal-content">
+      <p id="customModalText"></p>
+      <div id="customModalButtons"></div>
+    </div>
   </div>
-</div>
-<div id="modalNormas" class="modal">
-  <div class="modal-content">
-    <h2>Normas del Juego</h2>
-    <p>
-      1️⃣ El objetivo de los liberales es aprobar 5 leyes liberales o eliminar a Hitler.<br>
-      2️⃣ El objetivo de los fascistas es aprobar 6 leyes fascistas o elegir a Hitler como canciller después de la tercera ley fascista.<br>
-      3️⃣ Los jugadores solo pueden ver su rol una vez al inicio.<br>
-      4️⃣ Cada turno, el presidente roba 3 cartas, descarta 1 y pasa 2 al canciller.<br>
-      5️⃣ El canciller descarta 1 carta y aprueba la ley restante.<br>
-      6️⃣ Atencion con las normas que van saliendo al poner leyes fascistas.<br>
-      7️⃣ No reveles tu rol ni las cartas que recibiste (puedes mentir).<br>
-      8️⃣ Diviértete y no te lo tomes demasiado en serio. 😉
-    </p>
-    <button onclick="cerrarModal('modalNormas')">Cerrar</button>
+  <div id="modalNormas" class="modal">
+    <div class="modal-content">
+      <h2>Normas del Juego</h2>
+      <p>
+        1️⃣ El objetivo de los liberales es aprobar 5 leyes liberales o eliminar a Hitler.<br>
+        2️⃣ El objetivo de los fascistas es aprobar 6 leyes fascistas o elegir a Hitler como canciller después de la
+        tercera ley fascista.<br>
+        3️⃣ Los jugadores solo pueden ver su rol una vez al inicio.<br>
+        4️⃣ Cada turno, el presidente roba 3 cartas, descarta 1 y pasa 2 al canciller.<br>
+        5️⃣ El canciller descarta 1 carta y aprueba la ley restante.<br>
+        6️⃣ Atencion con las normas que van saliendo al poner leyes fascistas.<br>
+        7️⃣ No reveles tu rol ni las cartas que recibiste (puedes mentir).<br>
+        8️⃣ Diviértete y no te lo tomes demasiado en serio. 😉
+      </p>
+      <button onclick="cerrarModal('modalNormas')">Cerrar</button>
+    </div>
   </div>
-</div>
 
   <!-- Scripts -->
   <script src="script.js"></script>
