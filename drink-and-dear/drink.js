@@ -91,3 +91,8 @@ const rulesClose = document.getElementById("rules-close");
 rulesBtn.onclick = () => {
   rulesPopup.classList.remove("hidden");
 };
+rulesClose.onclick = () => {
+  rulesPopup.classList.add("hidden");
+};
+
+
