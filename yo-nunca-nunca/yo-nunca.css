@@ -73,32 +73,42 @@ button:hover {
 }
 
 .footer {
-  background-color: #0a2342;
-  color: #87cefa;
-  padding: 10px;
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 50px;
-  width: 100%;
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    width: 100%;
+    align-self: center;
+}
+
+.footer-content p {
+    margin: 0 0 10px 0;
+    font-weight: bold;
 }
 
 .footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0;
 }
 
 .footer-links li a {
-  color: #4fc3f7;
-  text-decoration: none;
-  font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
 }
 
 .footer-links li a:hover {
-  color: #81d4fa;
+    color: #0af;
 }
 
 .language-selector {
@@ -204,4 +214,55 @@ button:hover {
 
 #backToMenuBtn:hover {
   background-color: #444;
+}
+
+
+/* 📱 Responsive en móviles */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+        /* sube el tamaño base */
+    }
+
+    h1 {
+        font-size: 8vw;
+        /* se adapta al ancho de pantalla */
+        margin-top: 40px;
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        font-size: 5vw;
+    }
+
+    input {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1.2rem;
+        padding: 14px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1.2rem;
+        padding: 14px;
+    }
+
+    #setup,
+    #game,
+    #result {
+        padding: 16px;
+        width: 95%;
+    }
+
+    #playerList {
+        font-size: 1.3rem;
+    }
+
+    .footer {
+        font-size: 1rem;
+        /* sube también el footer */
+        padding: 16px;
+    }
 }

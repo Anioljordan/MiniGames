@@ -1,4 +1,5 @@
-    body {
+   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+   body {
       font-family: 'Bebas Neue', sans-serif;
       background: linear-gradient(to bottom, #0a2342, #1b3a6b);
       color: #e0f0ff;
@@ -8,7 +9,7 @@
       justify-content: center;
       min-height: 100vh;
       margin: 0;
-      padding: 10px;
+      padding: 0px;
     }
 
     h1 {
@@ -170,34 +171,44 @@
       display: none;
     }
 
-    .footer {
-      background-color: #0a2342;
-      color: #87cefa;
-      padding: 10px;
-      text-align: center;
-      font-size: 1.2rem;
-      margin-top: 50px;
-      width: 100%;
-    }
+.footer {
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    width: 100%;
+    align-self: center;
+}
 
-    .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+.footer-content p {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
 
-    .footer-links li a {
-      color: #4fc3f7;
-      text-decoration: none;
-      font-weight: 600;
-    }
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0;
+}
 
-    .footer-links li a:hover {
-      color: #81d4fa;
-    }
+.footer-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #0af;
+}
 
     #backToMenuBtn {
       position: fixed;
@@ -258,15 +269,11 @@
         padding: 8px 16px;
       }
 
-      .footer {
+    .footer {
         font-size: 1rem;
-        padding: 8px;
-      }
-
-      .footer-links {
-        flex-direction: column;
-        gap: 10px;
-      }
+        /* sube también el footer */
+        padding: 16px;
+    }
     }
 
     @media (max-width: 480px) {
@@ -289,3 +296,5 @@
         font-size: 1.8rem;
       }
     }
+
+    
