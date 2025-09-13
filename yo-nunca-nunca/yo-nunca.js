@@ -117,7 +117,7 @@ const phrases = [
   "Yo nunca he visto a mis padres follando",
   "Yo nunca he fantaseado con follarme a una vecina",
   "Yo nunca me he masturbado pensando en alguno de los presentes",
-  "Yo nunca he mentido en este yo nunca (si lo has hecho te haces un puto Hidalgo entero gilipollas)",
+  "Yo nunca he mentido en este yo nunca (si lo has hecho te haces un puto SANILARI entero atontao",
   "Yo nunca he tenido un sueño erótico con alguno de los presentes",
   "Yo nunca he pensado que alguno de los presentes la tiene como un camión",
   "Yo nunca he pensado que algunas de las presentes tiene un coño feo",
