@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Juego del Impostor (1 móvil)</title>
+    <link rel="stylesheet" href="impostor.css" />
+</head>
+
+<body>
+    <div class="app">
+        <header class="topbar">
+            <div>
+                <h1>Juego del Impostor</h1>
+                <p class="sub">Un solo móvil · se pasa entre jugadores · roles secretos</p>
+            </div>
+            <button id="btnReset" class="btn ghost" title="Volver al inicio">Reiniciar</button>
+        </header>
+
+        <!-- PANTALLA: CONFIG -->
+        <section id="screenConfig" class="card">
+            <h2>Configuración</h2>
+
+            <div class="grid">
+                <label class="field">
+                    <span>Número de personas</span>
+                    <input id="playersCount" type="number" min="3" max="20" value="6" />
+                    <small>Entre 3 y 20</small>
+                </label>
+
+                <label class="field">
+                    <span>Número de impostores</span>
+                    <input id="impostorsCount" type="number" min="1" max="6" value="1" />
+                    <small>Recomendado: 1–3</small>
+                </label>
+
+                <label class="field">
+                    <span>Dificultad</span>
+                    <select id="difficulty">
+                        <option value="easy">Fácil (impostor no ve palabra)</option>
+                        <option value="medium">Media (impostor ve categoría)</option>
+                        <option value="hard">Difícil (impostor ve palabra falsa)</option>
+                    </select>
+                    <small>Cuanto más difícil, más confuso para todos</small>
+                </label>
+
+                <label class="field">
+                    <span>Tiempo sugerido (minutos)</span>
+                    <input id="timeMinutes" type="number" min="1" max="20" value="6" />
+                    <small>Solo sugerencia (no bloquea)</small>
+                </label>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row">
+                <label class="toggle">
+                    <input id="useNames" type="checkbox" />
+                    <span>Usar nombres de jugadores (opcional)</span>
+                </label>
+            </div>
+
+            <div id="namesBox" class="namesBox hidden">
+                <p class="hint">Escribe nombres (uno por línea). Si no, se usarán “Jugador 1, Jugador 2…”</p>
+                <textarea id="namesTextarea" rows="6" placeholder="Aniol&#10;María&#10;Lucas"></textarea>
+            </div>
+
+            <div class="actions">
+                <button id="btnStart" class="btn primary">Empezar</button>
+            </div>
+
+            <div class="tips">
+                <h3>Cómo se juega (rápido)</h3>
+                <ol>
+                    <li>Configura jugadores e impostores.</li>
+                    <li>El móvil se pasa: cada jugador revela su rol y lo vuelve a ocultar.</li>
+                    <li>Luego habláis y hacéis preguntas sin decir la palabra directamente.</li>
+                    <li>Votación final: ¿quién es el impostor?</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- PANTALLA: PASAR MÓVIL -->
+        <section id="screenPass" class="card hidden">
+            <h2>Pasar el móvil</h2>
+            <p class="big">
+                <span id="passPlayerName">Jugador 1</span>,
+                <strong>coge el móvil</strong> y pulsa para ver tu rol.
+            </p>
+
+            <div class="actions">
+                <button id="btnReveal" class="btn primary">Ver mi rol</button>
+            </div>
+
+            <p class="warn">⚠️ Asegúrate de que nadie mire la pantalla.</p>
+        </section>
+
+        <!-- PANTALLA: REVELAR ROL -->
+        <section id="screenReveal" class="card hidden">
+            <h2>Tu rol</h2>
+
+            <div class="roleBox" id="roleBox">
+                <p class="roleTag" id="roleTag">TRIPULACIÓN</p>
+                <p class="roleMain" id="roleMain">Eres Tripulación</p>
+
+                <div class="secret">
+                    <p class="secretLabel" id="secretLabel">Palabra secreta</p>
+                    <p class="secretValue" id="secretValue">---</p>
+                </div>
+
+                <p class="mini" id="categoryLine">Categoría: <span id="categoryValue">---</span></p>
+            </div>
+
+            <div class="actions split">
+                <button id="btnHide" class="btn ghost">Ocultar</button>
+                <button id="btnNext" class="btn primary">Siguiente jugador</button>
+            </div>
+
+            <p class="hint">Después de leer, pulsa <strong>Ocultar</strong> antes de pasar el móvil.</p>
+        </section>
+
+        <!-- PANTALLA: FIN REPARTO -->
+        <section id="screenDone" class="card hidden">
+            <h2>¡Roles repartidos!</h2>
+            <p class="big">
+                Empezad a hablar. Tiempo sugerido: <strong><span id="timeValue">6</span> min</strong>.
+            </p>
+
+            <div class="doneBox">
+                <p class="mini">Reglas rápidas:</p>
+                <ul>
+                    <li>No digas la palabra exacta.</li>
+                    <li>Haz preguntas para pillar incoherencias.</li>
+                    <li>Votación final.</li>
+                </ul>
+            </div>
+
+            <div class="actions">
+                <button id="btnShowSummary" class="btn ghost">Ver resumen (solo para el moderador)</button>
+                <button id="btnPlayAgain" class="btn primary">Jugar otra vez</button>
+            </div>
+
+            <div id="summary" class="summary hidden">
+                <h3>Resumen (NO enseñar a los jugadores)</h3>
+                <p class="mini">Palabra real: <strong id="summaryWord">---</strong> · Categoría: <strong
+                        id="summaryCat">---</strong></p>
+                <p class="mini">Impostores: <strong id="summaryImps">---</strong></p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p class="mini">Hecho para GitHub Pages · 100% local (sin servidor) · sin datos</p>
+        </footer>
+    </div>
+
+    <script src="impostor.js"></script>
+</body>
+
+</html>
