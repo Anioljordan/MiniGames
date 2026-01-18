@@ -40,6 +40,7 @@ const translations = {
     optionDrinkDear: "Señala y Bebe",
     optionTruthOrDare: "Prueba o Verdad",
     optionDrinkAndDear: "Drink and Dare",
+    optionImpostor: "Impostor",
     footerCreatedBy: "Creado por Aniol Jordán",
   },
 
@@ -49,6 +50,7 @@ const translations = {
     optionDrinkDear: "Point and Drink",
     optionTruthOrDare: "Truth or Dare",
     optionDrinkAndDear: "Drink and Dare",
+    optionImpostor: "Impostor",
     footerCreatedBy: "Created by Aniol Jordán",
   },
 };

@@ -1,12 +1,8 @@
 const wheel = document.getElementById("wheel");
 const spinBtn = document.getElementById("spinBtn");
+const stopBtn = document.getElementById("stopBtn");
 const result = document.getElementById("result");
 
-const segmentCount = 13;
-const segmentAngle = 360 / segmentCount;
-const radius = 140; // distancia texto desde centro
-
-// Crear los textos de los segmentos
 const segments = [
   "BEBES UN TRAGO",
   "REPARTES 3 TRAGOS",
@@ -23,76 +19,85 @@ const segments = [
   "TE BEBES EL VASO COMÚN SI NO HAY BEBIDA, DOS TRAGOS",
 ];
 
-let rotation = 0;
-let velocity = 0; // grados por segundo
-let spinning = false;
-let lastTimestamp = null;
+const segmentCount = segments.length;
+const segmentAngle = 360 / segmentCount;
 
-function animate(timestamp) {
+let angle = 0;
+let speed = 0;
+let spinning = false;
+let slowingDown = false;
+let animationId = null;
+
+// --- LOOP DE GIRO ---
+function spinLoop() {
   if (!spinning) return;
 
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // en segundos
-  lastTimestamp = timestamp;
+  angle += speed;
+  angle %= 360;
+  wheel.style.transform = `rotate(${angle}deg)`;
 
-  rotation += velocity * deltaTime;
-  rotation %= 360;
-  wheel.style.transform = `rotate(${rotation}deg)`;
-
-  // Desacelerar (pierde un 5% por segundo)
-  velocity *= 0.987; // se frena más lento, gira más tiempo
-
-  if (velocity < 5) {
-    velocity = 0;
-    spinning = false;
-    lastTimestamp = null;
-
-    setTimeout(() => {
-      const offset = 90;
-      const adjustedRotation = (rotation + offset) % 360;
-      const normalizedDegree = (360 - adjustedRotation) % 360;
-      const winningIndex = Math.floor(normalizedDegree / segmentAngle);
-
-      const popup = document.getElementById("popup");
-      const popupText = document.getElementById("popup-text");
-      const popupClose = document.getElementById("popup-close");
-
-      popupText.textContent = `¡Te toca: ${segments[winningIndex]}!`;
-      popup.classList.remove("hidden");
-
-      popupClose.onclick = () => {
-        popup.classList.add("hidden");
-        spinBtn.disabled = false;
-      };
-    }, 500); // opcional: pequeña pausa antes del popup
-  } else {
-    requestAnimationFrame(animate);
+  if (slowingDown) {
+    speed *= 0.96;
+    if (speed < 0.4) {
+      finishSpin();
+      return;
+    }
   }
+
+  animationId = requestAnimationFrame(spinLoop);
 }
 
+// --- AL ACABAR ---
+function finishSpin() {
+  spinning = false;
+  slowingDown = false;
+  cancelAnimationFrame(animationId);
+
+  // ajuste porque la flecha apunta hacia arriba
+  const offset = 90;
+  const corrected = (360 - ((angle + offset) % 360)) % 360;
+  const index = Math.floor(corrected / segmentAngle);
+  const resultText = segments[index];
+
+  // popup
+  const popup = document.getElementById("popup");
+  const popupText = document.getElementById("popup-text");
+  const popupClose = document.getElementById("popup-close");
+
+  popupText.textContent = `¡Te toca: ${resultText}!`;
+  popup.classList.remove("hidden");
+
+  popupClose.onclick = () => {
+    popup.classList.add("hidden");
+    spinBtn.disabled = false;
+  };
+}
+
+// --- EVENTO GIRAR ---
 spinBtn.addEventListener("click", () => {
   if (spinning) return;
 
   spinning = true;
+  slowingDown = false;
+  stopBtn.disabled = false;
   spinBtn.disabled = true;
-  result.textContent = "";
 
-  velocity = Math.random() * 360 + 720; // entre 720 y 1080 grados/seg = 2 a 3 vueltas/seg
+  speed = Math.random() * 4 + 8; // velocidad inicial
 
-  lastTimestamp = null;
-
-  requestAnimationFrame(animate);
+  spinLoop();
 });
 
+// --- EVENTO PARAR ---
+stopBtn.addEventListener("click", () => {
+  if (!spinning || slowingDown) return;
+  slowingDown = true;
+  stopBtn.disabled = true;
+});
+
+// POPUP NORMAS
 const rulesBtn = document.getElementById("rulesBtn");
 const rulesPopup = document.getElementById("rules-popup");
 const rulesClose = document.getElementById("rules-close");
 
-rulesBtn.onclick = () => {
-  rulesPopup.classList.remove("hidden");
-};
-rulesClose.onclick = () => {
-  rulesPopup.classList.add("hidden");
-};
-
-
+rulesBtn.onclick = () => rulesPopup.classList.remove("hidden");
+rulesClose.onclick = () => rulesPopup.classList.add("hidden");
