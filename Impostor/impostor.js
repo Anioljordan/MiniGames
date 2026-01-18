@@ -52,42 +52,280 @@ const ui = {
 };
 
 // Banco de palabras (puedes ampliar esto a lo loco)
+
 const WORD_SETS = [
+  // === COMIDA ===
   {
     category: "Comida",
-    real: "Pizza",
-    fake: ["Hamburguesa", "Pasta", "Kebab"],
+    real: "Hamburguesa",
+    fake: ["Hot Dog", "Arepa", "Panini"],
   },
-  { category: "Comida", real: "Sushi", fake: ["Ramen", "Tacos", "Paella"] },
-  { category: "Lugar", real: "Playa", fake: ["Piscina", "Montaña", "Parque"] },
+  {
+    category: "Comida",
+    real: "Paella",
+    fake: ["Risotto", "Cous Cous", "Tabulé"],
+  },
+  {
+    category: "Comida",
+    real: "Tacos",
+    fake: ["Burrito", "Enchilada", "Quesadilla"],
+  },
+  {
+    category: "Comida",
+    real: "Helado",
+    fake: ["Yogurt", "Natillas", "Mousse"],
+  },
+  {
+    category: "Comida",
+    real: "Ensalada",
+    fake: ["Gazpacho", "Puré", "Brochetas"],
+  },
+  {
+    category: "Comida",
+    real: "Croissant",
+    fake: ["Donut", "Magdalena", "Palmera"],
+  },
+  { category: "Comida", real: "Empanada", fake: ["Arepa", "Samosa", "Gyoza"] },
+  { category: "Comida", real: "Kimchi", fake: ["Curry", "Pad Thai", "Pho"] },
+  {
+    category: "Comida",
+    real: "Churrasco",
+    fake: ["Albóndigas", "Costillas", "Pollo al curry"],
+  },
+  {
+    category: "Comida",
+    real: "Ceviche",
+    fake: ["Carpaccio", "Tartar", "Poké"],
+  },
+
+  // === BEBIDAS ===
+  {
+    category: "Bebida",
+    real: "Café",
+    fake: ["Té", "Chocolate caliente", "Zumo"],
+  },
+  {
+    category: "Bebida",
+    real: "Mojito",
+    fake: ["Daiquiri", "Piña colada", "Caipirinha"],
+  },
+  { category: "Bebida", real: "Cerveza", fake: ["Sidra", "Vino", "Champán"] },
+  {
+    category: "Bebida",
+    real: "Matcha",
+    fake: ["Latte", "Capuccino", "Americano"],
+  },
+
+  // === LUGARES ===
   {
     category: "Lugar",
-    real: "Aeropuerto",
-    fake: ["Estación", "Hotel", "Centro comercial"],
+    real: "Museo",
+    fake: ["Biblioteca", "Teatro", "Acuario"],
+  },
+  {
+    category: "Lugar",
+    real: "Estadio",
+    fake: ["Gimnasio", "Piscina", "Polideportivo"],
+  },
+  { category: "Lugar", real: "Selva", fake: ["Desierto", "Tundra", "Sabana"] },
+  { category: "Lugar", real: "Volcán", fake: ["Montaña", "Cañón", "Glaciar"] },
+  {
+    category: "Lugar",
+    real: "Hospital",
+    fake: ["Farmacia", "Clínica", "Ambulatorio"],
+  },
+  {
+    category: "Lugar",
+    real: "Universidad",
+    fake: ["Instituto", "Academia", "Colegio"],
+  },
+  {
+    category: "Lugar",
+    real: "Iglesia",
+    fake: ["Templo", "Sinagoga", "Mezquita"],
+  },
+  { category: "Lugar", real: "Isla", fake: ["Costa", "Península", "Bahía"] },
+  {
+    category: "Lugar",
+    real: "Oficina",
+    fake: ["Coworking", "Sala de juntas", "Recepción"],
+  },
+
+  // === OBJETOS ===
+  {
+    category: "Objeto",
+    real: "Bicicleta",
+    fake: ["Patinete", "Skate", "Triciclo"],
   },
   {
     category: "Objeto",
-    real: "Teléfono",
-    fake: ["Tablet", "Portátil", "Mando"],
+    real: "Cámara",
+    fake: ["Dron", "Micrófono", "Trípode"],
   },
-  { category: "Objeto", real: "Gafas", fake: ["Sombrero", "Bufanda", "Reloj"] },
-  { category: "Animal", real: "Perro", fake: ["Gato", "Conejo", "Zorro"] },
-  { category: "Animal", real: "Delfín", fake: ["Tiburón", "Ballena", "Foca"] },
-  { category: "Transporte", real: "Moto", fake: ["Bici", "Coche", "Patinete"] },
+  {
+    category: "Objeto",
+    real: "Llave",
+    fake: ["Candado", "Cerradura", "Picaporte"],
+  },
+  { category: "Objeto", real: "Maleta", fake: ["Mochila", "Bolso", "Cartera"] },
+  {
+    category: "Objeto",
+    real: "Casco",
+    fake: ["Gorra", "Sombrero", "Pasamontañas"],
+  },
+  { category: "Objeto", real: "Papel", fake: ["Cartón", "Tela", "Plástico"] },
+  {
+    category: "Objeto",
+    real: "Martillo",
+    fake: ["Destornillador", "Taladro", "Llave inglesa"],
+  },
+  {
+    category: "Objeto",
+    real: "Linterna",
+    fake: ["Velas", "Lámpara", "Mechero"],
+  },
+
+  // === ANIMALES ===
+  { category: "Animal", real: "Koala", fake: ["Panda", "Perezoso", "Mapache"] },
+  {
+    category: "Animal",
+    real: "Canguro",
+    fake: ["Wallaby", "Camello", "Ñandú"],
+  },
+  {
+    category: "Animal",
+    real: "Pingüino",
+    fake: ["Gaviota", "Pelícano", "Flamenco"],
+  },
+  {
+    category: "Animal",
+    real: "Elefante",
+    fake: ["Hipopótamo", "Rinoceronte", "Búfalo"],
+  },
+  {
+    category: "Animal",
+    real: "Camaleón",
+    fake: ["Iguana", "Lagartija", "Serpiente"],
+  },
+
+  // === TRANSPORTE ===
   {
     category: "Transporte",
-    real: "Camper",
-    fake: ["Furgoneta", "Coche", "Autobús"],
+    real: "Helicóptero",
+    fake: ["Avión", "Jet", "Parapente"],
   },
   {
-    category: "Película/Serie",
-    real: "Harry Potter",
-    fake: ["Star Wars", "Marvel", "El Señor de los Anillos"],
+    category: "Transporte",
+    real: "Metro",
+    fake: ["Tren", "Tranvía", "Autobús"],
+  },
+  {
+    category: "Transporte",
+    real: "Barco",
+    fake: ["Velero", "Lancha", "Ferry"],
+  },
+  {
+    category: "Transporte",
+    real: "Monopatín",
+    fake: ["Bici", "Patines", "Scooter"],
+  },
+  { category: "Transporte", real: "Cohete", fake: ["Avión", "Globo", "Dron"] },
+
+  // === PROFESIONES ===
+  {
+    category: "Profesión",
+    real: "Médico",
+    fake: ["Enfermero", "Dentista", "Cirujano"],
+  },
+  {
+    category: "Profesión",
+    real: "Abogado",
+    fake: ["Policía", "Juez", "Notario"],
+  },
+  {
+    category: "Profesión",
+    real: "Chef",
+    fake: ["Camarero", "Panadero", "Sommelier"],
+  },
+  {
+    category: "Profesión",
+    real: "Soldador",
+    fake: ["Mecánico", "Carpintero", "Electricista"],
+  },
+  {
+    category: "Profesión",
+    real: "Programador",
+    fake: ["Diseñador", "Tester", "Administrador de sistemas"],
+  },
+
+  // === TECNOLOGÍA ===
+  {
+    category: "Tecnología",
+    real: "ChatGPT",
+    fake: ["Siri", "Alexa", "Google Assistant"],
+  },
+  {
+    category: "Tecnología",
+    real: "Router",
+    fake: ["Módem", "Switch", "Repetidor"],
+  },
+  {
+    category: "Tecnología",
+    real: "Blockchain",
+    fake: ["Base de datos", "FTP", "Servidor"],
+  },
+  {
+    category: "Tecnología",
+    real: "VPN",
+    fake: ["Proxy", "Firewall", "Antivirus"],
+  },
+
+  // === DEPORTES ===
+  { category: "Deporte", real: "Boxeo", fake: ["Judo", "Karate", "Taekwondo"] },
+  {
+    category: "Deporte",
+    real: "Golf",
+    fake: ["Críquet", "Béisbol", "Softbol"],
   },
   {
     category: "Deporte",
-    real: "Baloncesto",
-    fake: ["Fútbol", "Tenis", "Vóley"],
+    real: "Surf",
+    fake: ["Bodyboard", "Windsurf", "Kitesurf"],
+  },
+  { category: "Deporte", real: "Esgrima", fake: ["Arco", "Tiro", "Boliche"] },
+
+  // === VIDEOJUEGOS ===
+  {
+    category: "Videojuego",
+    real: "Minecraft",
+    fake: ["Roblox", "Terraria", "Fortnite"],
+  },
+  {
+    category: "Videojuego",
+    real: "Zelda",
+    fake: ["Mario", "Metroid", "Pokémon"],
+  },
+  {
+    category: "Videojuego",
+    real: "Valorant",
+    fake: ["CSGO", "Overwatch", "Apex Legends"],
+  },
+
+  // === MÚSICA ===
+  { category: "Música", real: "Reggaeton", fake: ["Salsa", "Trap", "Bachata"] },
+  { category: "Música", real: "Metal", fake: ["Rock", "Punk", "Hardcore"] },
+  { category: "Música", real: "Jazz", fake: ["Blues", "Swing", "Soul"] },
+
+  // === COSAS RANDOM ===
+  {
+    category: "Concepto",
+    real: "Libertad",
+    fake: ["Justicia", "Igualdad", "Moralidad"],
+  },
+  {
+    category: "Concepto",
+    real: "Tiempo",
+    fake: ["Espacio", "Materia", "Energía"],
   },
 ];
 
