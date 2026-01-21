@@ -1,12 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-body {
-    font-family: 'Bebas Neue', Impact, sans-serif;
-    background: linear-gradient(to bottom, #0a2342, #1b3a6b);
-    color: #e0f0ff;
+/* =========================
+   BASE
+   ========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
 
+body {
+    font-family: "Bebas Neue", Impact, sans-serif;
+    background: radial-gradient(circle at top, #ff4c6a 0%, #1b1734 40%, #050612 100%);
+    color: #fdfdfd;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -14,93 +23,131 @@ body {
     text-align: center;
 }
 
+/* =========================
+   MAIN / CONTENEDOR
+   ========================= */
+
 main {
-
     flex: 1;
-
+    width: 100%;
+    max-width: 900px;
+    padding: 20px 16px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
 }
 
+/* =========================
+   TÍTULOS
+   ========================= */
+
 h1 {
-    font-size: 3.5rem;
-    color: #4fc3f7;
-    text-shadow: 1px 1px 4px rgba(0, 105, 160, 0.8);
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
     letter-spacing: 4px;
-    margin-top: 80px;
+    margin-top: 70px;
+    text-transform: uppercase;
 }
 
 h2 {
     font-size: 2rem;
-    margin-bottom: 20px;
-    color: #81d4fa;
-    text-shadow: 0 0 6px rgba(79, 195, 247, 0.7);
+    margin-bottom: 16px;
+    color: #ffb347;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+    letter-spacing: 2px;
 }
 
-/* Inputs */
+/* =========================
+   INPUTS
+   ========================= */
+
 input {
     padding: 12px 18px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: none;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
     outline: none;
-    width: 250px;
+    width: 260px;
     max-width: 80%;
     margin-bottom: 15px;
     text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Bebas Neue", sans-serif;
     letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
 }
 
-/* Botones */
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* =========================
+   BOTONES
+   ========================= */
+
 .btn {
-    background-color: #0288d1;
+    background: linear-gradient(135deg, #ff4c6a, #ffb347);
     border: none;
-    padding: 14px 28px;
-    margin: 10px;
-    font-size: 1.2rem;
-    color: white;
-    border-radius: 10px;
+    padding: 12px 28px;
+    margin: 8px;
+    font-size: 1.3rem;
+    color: #151521;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    box-shadow: 0 4px 10px rgba(2, 136, 209, 0.6);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .btn:hover {
-    background-color: #015a8e;
-    box-shadow: 0 6px 14px rgba(1, 90, 142, 0.9);
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.85);
 }
 
+/* Botón peligro / borrar / reset fuerte */
 .btn.danger {
-    background-color: #d32f2f;
-    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.6);
+    background: linear-gradient(135deg, #ff1744, #ff6e40);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
 }
 
 .btn.danger:hover {
-    background-color: #a62828;
-    box-shadow: 0 6px 14px rgba(166, 40, 40, 0.9);
+    transform: translateY(-1px);
+    filter: brightness(1.05);
 }
 
-/* Lista de jugadores */
+/* =========================
+   LISTA DE JUGADORES
+   ========================= */
+
 #playerList {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    color: #e1f5fe;
-    text-shadow: 0 0 6px rgba(79, 195, 247, 0.6);
+    margin-top: 18px;
+    font-size: 1.6rem;
+    color: #fdfdfd;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
-/* Contenedor principal */
+/* =========================
+   CONTENEDORES (pantallas)
+   ========================= */
+
 #setup,
 #game,
 #result {
-    background: rgba(79, 195, 247, 0.08);
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
-    padding: 30px 40px;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.7));
+    border-radius: 18px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9);
+    padding: 26px 28px 30px;
     margin-top: 20px;
-    max-width: 600px;
+    max-width: 650px;
     width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* Oculto */
@@ -108,39 +155,53 @@ input {
     display: none;
 }
 
-/* Botón volver al menú */
+/* =========================
+   BOTÓN VOLVER AL MENÚ
+   ========================= */
+
 #backToMenuBtn {
     position: fixed;
-    top: 15px;
-    left: 15px;
-    padding: 8px 14px;
-    background-color: #222;
+    top: 14px;
+    left: 14px;
+    padding: 6px 14px;
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
     text-decoration: none;
-    font-family: 'Bebas Neue', sans-serif;
-    border-radius: 6px;
-    font-size: 16px;
+    font-family: "Bebas Neue", sans-serif;
+    border-radius: 999px;
+    font-size: 0.95rem;
     z-index: 1000;
-    transition: background-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    letter-spacing: 1px;
+    transition: background 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease;
 }
 
 #backToMenuBtn:hover {
-    background-color: #444;
+    background-color: rgba(0, 0, 0, 0.95);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
 }
 
+/* =========================
+   FOOTER
+   ========================= */
+
 .footer {
-    background-color: #111;
+    background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
-    padding: 20px;
+    padding: 16px 10px 20px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 30px;
     width: 100%;
     align-self: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.9rem;
 }
 
 .footer-content p {
-    margin: 0 0 10px 0;
+    margin: 0 0 6px 0;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .footer-links {
@@ -149,40 +210,43 @@ input {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 12px;
     margin: 0;
 }
 
 .footer-links li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: color 0.3s ease;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.12s ease;
 }
 
 .footer-links li a:hover {
-    color: #0af;
+    opacity: 1;
+    transform: translateY(-1px);
 }
 
-/* 📱 Responsive en móviles */
+/* =========================
+   RESPONSIVE
+   ========================= */
+
 @media (max-width: 600px) {
     body {
         font-size: 16px;
-        /* sube el tamaño base */
     }
 
     h1 {
-        font-size: 8vw;
-        /* se adapta al ancho de pantalla */
-        margin-top: 40px;
-        letter-spacing: 1px;
+        font-size: 2.4rem;
+        margin-top: 50px;
+        letter-spacing: 2px;
     }
 
     h2 {
-        font-size: 5vw;
+        font-size: 1.7rem;
     }
 
     input {
@@ -194,25 +258,24 @@ input {
 
     .btn {
         width: 100%;
-        max-width: 100%;
-        font-size: 1.2rem;
-        padding: 14px;
+        max-width: 320px;
+        font-size: 1.25rem;
+        padding: 12px 18px;
     }
 
     #setup,
     #game,
     #result {
-        padding: 16px;
+        padding: 18px 16px 22px;
         width: 95%;
     }
 
     #playerList {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     .footer {
-        font-size: 1rem;
-        /* sube también el footer */
-        padding: 16px;
+        font-size: 0.95rem;
+        padding: 14px;
     }
 }

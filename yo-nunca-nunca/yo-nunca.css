@@ -1,118 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+/* =========================
+   BASE
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  font-family: 'Bebas Neue', Impact, sans-serif;
-  background: linear-gradient(to bottom, #0a2342, #1b3a6b);
-  color: #e0f0ff;
-  margin: 0;
-
+  font-family: "Bebas Neue", Impact, sans-serif;
+  background: radial-gradient(circle at top, #ff4c6a 0%, #1b1734 40%, #050612 100%);
+  color: #fdfdfd;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
+/* =========================
+   HEADER
+   ========================= */
+
 header {
+  width: 100%;
   text-align: center;
-  margin-bottom: 40px;
+  padding: 28px 16px 12px;
 }
 
 h1 {
-  font-size: 3.5rem;
-  color: #4fc3f7;
-  /* azul claro */
-  text-shadow: 1px 1px 4px rgba(0, 105, 160, 0.8);
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
   letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
+/* =========================
+   MAIN / FRASE
+   ========================= */
+
 main {
-
   flex: 1;
-  padding: 20px;
-
+  padding: 12px 16px 30px;
   text-align: center;
-  max-width: 800px;
-  width: 90%;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
 }
 
 .phrase {
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   min-height: 120px;
-  padding: 20px 30px;
-  background: rgba(79, 195, 247, 0.15);
-  /* azul suave semitransparente */
-  border-radius: 16px;
-  box-shadow: 0 0 20px #4fc3f7;
-  color: #e1f5fe;
+  padding: 22px 24px;
+  width: 100%;
+  max-width: 800px;
+
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.75));
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9);
+
+  color: #fdfdfd;
   user-select: none;
 }
 
+/* =========================
+   BOTONES
+   ========================= */
+
 button {
-  background-color: #0288d1;
-  /* azul fuerte */
+  font-family: "Bebas Neue", Impact, sans-serif;
+  background: linear-gradient(135deg, #ff4c6a, #ffb347);
   border: none;
-  padding: 14px 28px;
-  margin: 10px;
-  font-size: 1.2rem;
-  color: white;
-  border-radius: 10px;
+  padding: 12px 26px;
+  margin: 8px;
+  font-size: 1.3rem;
+  color: #151521;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  box-shadow: 0 4px 10px rgba(2, 136, 209, 0.6);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 button:hover {
-  background-color: #015a8e;
-  box-shadow: 0 6px 14px rgba(1, 90, 142, 0.9);
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.85);
 }
 
+/* Botón normas (puede compartir estilo, pero por si quieres tocarlo aparte) */
+#rulesBtn {
+  background: radial-gradient(circle at top, #1e223c, #050612);
+  color: #fdfdfd;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
 .footer {
-    background-color: #111;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    margin-top: 40px;
-    width: 100%;
-    align-self: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 16px 10px 20px;
+  text-align: center;
+  margin-top: 30px;
+  width: 100%;
+  align-self: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
 }
 
 .footer-content p {
-    margin: 0 0 10px 0;
-    font-weight: bold;
+  margin: 0 0 6px 0;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .footer-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
 }
 
 .footer-links li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.12s ease;
 }
 
 .footer-links li a:hover {
-    color: #0af;
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
+/* =========================
+   SELECTOR DE IDIOMA
+   ========================= */
+
 .language-selector {
-  margin: 20px 0;
+  margin: 14px 0 4px;
   text-align: center;
 }
 
@@ -123,146 +172,115 @@ button:hover {
   margin: 0 8px;
   vertical-align: middle;
   border: 3px solid transparent;
-  border-radius: 5px;
-  transition: border-color 0.3s ease;
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.3));
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.2s ease;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
 }
 
 .language-selector .flag.selected {
-  border-color: #4fc3f7;
-  filter: drop-shadow(0 0 8px #4fc3f7);
+  border-color: #ffb347;
+  box-shadow: 0 0 10px rgba(255, 179, 71, 0.9);
 }
 
-/* Modal oculto por defecto */
+/* =========================
+   MODAL NORMAS
+   ========================= */
+
 .modal {
   display: none;
   position: fixed;
   z-index: 1000;
-  left: 0;
-  top: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
-/* Contenido del modal */
 .modal-content {
-  background-color: #0a2342;
-  margin: 10% auto;
-  padding: 30px;
-  /* un poco más de espacio */
-  border-radius: 12px;
+  background: radial-gradient(circle at top, #1e223c, #050612);
+  margin: 12% auto;
+  padding: 24px 22px 28px;
+  border-radius: 16px;
   width: 90%;
   max-width: 500px;
   color: #e0f0ff;
-  box-shadow: 0 0 15px #4fc3f7;
-  font-size: 1.4rem;
-  /* texto más grande */
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9);
+  font-size: 1.35rem;
   line-height: 1.4;
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-/* Botón cerrar */
 .close {
-  color: #4fc3f7;
+  color: #ffb347;
   float: right;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  margin-left: 8px;
 }
 
 .close:hover {
-  color: #81d4fa;
+  color: #ffffff;
 }
 
-/* Botón normas */
-#rulesBtn {
-  background-color: #0277bd;
-  border: none;
-  padding: 14px 28px;
-  margin: 10px;
-  font-size: 1.2rem;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  box-shadow: 0 4px 10px rgba(2, 119, 189, 0.6);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-#rulesBtn:hover {
-  background-color: #014c75;
-  box-shadow: 0 6px 14px rgba(1, 76, 117, 0.9);
-}
+/* =========================
+   BOTÓN VOLVER AL MENÚ
+   ========================= */
 
 #backToMenuBtn {
   position: fixed;
-  top: 15px;
-  left: 15px;
-  padding: 8px 14px;
-  background-color: #222;
+  top: 14px;
+  left: 14px;
+  padding: 6px 14px;
+  background-color: rgba(0, 0, 0, 0.75);
   color: white;
   text-decoration: none;
-  font-family: 'Bebas Neue', sans-serif;
-  border-radius: 6px;
-  font-size: 16px;
+  font-family: "Bebas Neue", sans-serif;
+  border-radius: 999px;
+  font-size: 0.95rem;
   z-index: 1000;
-  transition: background-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  letter-spacing: 1px;
+  transition: background 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease;
 }
 
 #backToMenuBtn:hover {
-  background-color: #444;
+  background-color: rgba(0, 0, 0, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
 }
 
+/* =========================
+   RESPONSIVE
+   ========================= */
 
-/* 📱 Responsive en móviles */
 @media (max-width: 600px) {
-    body {
-        font-size: 16px;
-        /* sube el tamaño base */
-    }
+  h1 {
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+  }
 
-    h1 {
-        font-size: 8vw;
-        /* se adapta al ancho de pantalla */
-        margin-top: 40px;
-        letter-spacing: 1px;
-    }
+  .phrase {
+    font-size: 1.7rem;
+    padding: 18px 16px;
+    min-height: 110px;
+  }
 
-    h2 {
-        font-size: 5vw;
-    }
+  button {
+    width: 100%;
+    max-width: 320px;
+    font-size: 1.25rem;
+    padding: 12px 18px;
+  }
 
-    input {
-        width: 100%;
-        max-width: 100%;
-        font-size: 1.2rem;
-        padding: 14px;
-    }
+  .modal-content {
+    margin-top: 30%;
+    font-size: 1.25rem;
+  }
 
-    .btn {
-        width: 100%;
-        max-width: 100%;
-        font-size: 1.2rem;
-        padding: 14px;
-    }
-
-    #setup,
-    #game,
-    #result {
-        padding: 16px;
-        width: 95%;
-    }
-
-    #playerList {
-        font-size: 1.3rem;
-    }
-
-    .footer {
-        font-size: 1rem;
-        /* sube también el footer */
-        padding: 16px;
-    }
+  .footer {
+    font-size: 0.95rem;
+    padding: 14px;
+  }
 }
