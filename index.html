@@ -5,43 +5,146 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MiniJuegos</title>
+
+  <!-- Fuente más “game/app” -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
-  <header>
-    <div class="language-selector">
-      <img src="https://flagsapi.com/ES/flat/64.png" class="flag" data-lang="es" alt="Español">
-      <img src="https://flagsapi.com/GB/flat/64.png" class="flag" data-lang="en" alt="English">
-    </div>
+  <div class="app">
 
-    <h1 class="title" data-i18n="mainTitle">MiniJuegos para Beber</h1>
 
-  </header>
 
-  <main class="buttons">
-    <a href="yo-nunca-nunca/yo-nunca.html" class="btn" data-i18n="optionYoNunca">Yo Nunca Nunca</a>
-    <a href="piccolo/piccolo.html" class="btn" data-i18n="optionDrinkDear">Señala y a Beber</a>
-    <a href="unoydos/unoydos.html" class="btn" data-i18n="unoy2">1 Y 2</a>
-    <a href="prueba-verdad/prueba-verdad.html" class="btn" data-i18n="optionTruthOrDare">Prueba o Verdad</a>
-    <a href="drink-and-dear/drink.html" class="btn" data-i18n="optionDrinkAndDear">Drink and Dear</a>
-    <a href="Impostor/impostor.html" class="btn" data-i18n="optionImpostor">Juego del Impostor</a>
-    <a href="https://anioljordan.github.io/Hitler/" class="btn">Hitler</a>
-  </main>
+    <main class="content">
+      <section class="tiles">
 
-  <footer class="footer">
-    <div class="footer-content">
-      <p>Creado por Aniol Jordán</p>
-      <ul class="footer-links">
-        <li><a href="https://www.linkedin.com/in/aniol-jord%C3%A1n-l%C3%B3pez-35854123a/" target="_blank"><i
-              class="fab fa-linkedin"></i> LinkedIn</a></li>
-        <li><a href="https://www.instagram.com/aniol.dev" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        </li>
-        <li><a href="https://github.com/Anioljordan" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-      </ul>
-    </div>
-  </footer>
+        <a class="tile t-purple" href="yo-nunca-nunca/yo-nunca.html" aria-label="Yo Nunca Nunca">
+          <div class="tile-icon">
+            <!-- icono outline simple -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-beer-icon lucide-beer">
+              <path d="M17 11h1a3 3 0 0 1 0 6h-1" />
+              <path d="M9 12v6" />
+              <path d="M13 12v6" />
+              <path
+                d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5S9.44 2 11 2s2 1.5 3 1.5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5Z" />
+              <path d="M5 8v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8" />
+            </svg>
+          </div>
+          <div class="tile-label" data-i18n="optionYoNunca">YO NUNCA</div>
+        </a>
+
+        <a class="tile t-blue" href="piccolo/piccolo.html" aria-label="Señala y a Beber">
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-pointer-icon lucide-pointer">
+              <path d="M22 14a8 8 0 0 1-8 8" />
+              <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" />
+              <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" />
+              <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" />
+              <path
+                d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+            </svg>
+          </div>
+          <div class="tile-label" data-i18n="optionDrinkDear">SEÑALA</div>
+        </a>
+
+        <a class="tile t-mint" href="unoydos/unoydos.html" aria-label="1 y 2">
+          <div class="tile-icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 12s3-7 9-7 9 7 9 7-3 7-9 7-9-7-9-7Z" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" />
+              <path d="M9.5 9.5l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              <circle cx="12" cy="12" r="2.4" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+          </div>
+          <div class="tile-label" data-i18n="unoy2">1 Y 2</div>
+        </a>
+
+        <a class="tile t-amber" href="prueba-verdad/prueba-verdad.html" aria-label="Prueba o Verdad">
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-drama-icon lucide-drama">
+              <path d="M10 11h.01" />
+              <path d="M14 6h.01" />
+              <path d="M18 6h.01" />
+              <path d="M6.5 13.1h.01" />
+              <path d="M22 5c0 9-4 12-6 12s-6-3-6-12c0-2 2-3 6-3s6 1 6 3" />
+              <path d="M17.4 9.9c-.8.8-2 .8-2.8 0" />
+              <path
+                d="M10.1 7.1C9 7.2 7.7 7.7 6 8.6c-3.5 2-4.7 3.9-3.7 5.6 4.5 7.8 9.5 8.4 11.2 7.4.9-.5 1.9-2.1 1.9-4.7" />
+              <path d="M9.1 16.5c.3-1.1 1.4-1.7 2.4-1.4" />
+            </svg>
+          </div>
+          <div class="tile-label" data-i18n="optionTruthOrDare">VERDAD</div>
+        </a>
+
+        <a class="tile t-red" href="drink-and-dear/drink.html" aria-label="Drink and Dear">
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-loader-pinwheel-icon lucide-loader-pinwheel">
+              <path d="M22 12a1 1 0 0 1-10 0 1 1 0 0 0-10 0" />
+              <path d="M7 20.7a1 1 0 1 1 5-8.7 1 1 0 1 0 5-8.6" />
+              <path d="M7 3.3a1 1 0 1 1 5 8.6 1 1 0 1 0 5 8.6" />
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+          </div>
+          <div class="tile-label" data-i18n="optionDrinkAndDear">RULETA</div>
+        </a>
+
+        <a class="tile t-dark" href="Impostor/impostor.html" aria-label="Juego del Impostor">
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-user-search-icon lucide-user-search">
+              <circle cx="10" cy="7" r="4" />
+              <path d="M10.3 15H7a4 4 0 0 0-4 4v2" />
+              <circle cx="17" cy="17" r="3" />
+              <path d="m21 21-1.9-1.9" />
+            </svg>
+          </div>
+          <div class="tile-label" data-i18n="optionImpostor">IMPOSTOR</div>
+        </a>
+
+        <a class="tile t-sky" href="https://anioljordan.github.io/Hitler/" aria-label="Hitler">
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-crown-icon lucide-crown">
+              <path
+                d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z" />
+              <path d="M5 21h14" />
+            </svg>
+          </div>
+          <div class="tile-label" data-i18n="optionHitler">TABLERO</div>
+        </a>
+
+      </section>
+
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>Creado por Aniol Jordán</p>
+        <ul class="footer-links">
+          <li><a href="https://www.linkedin.com/in/aniol-jord%C3%A1n-l%C3%B3pez-35854123a/" target="_blank"
+              rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/aniol.dev" target="_blank" rel="noopener"><i
+                class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://github.com/Anioljordan" target="_blank" rel="noopener"><i class="fab fa-github"></i>
+              GitHub</a></li>
+        </ul>
+      </div>
+    </footer>
+
+  </div>
 
   <script src="translations.js"></script>
 </body>
